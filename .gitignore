@@ -1,0 +1,20 @@
+# .gitignore - pliki, których Git nie śledzi (wyniki budowania, ustawienia edytora, dane lokalne)
+
+# Gradle / Fabric - tworzone przy budowaniu i testowaniu moda
+.gradle/
+build/
+run/
+out/
+
+# Edytory
+.idea/
+.vscode/
+*.iml
+
+# Pliki systemowe
+Thumbs.db
+.DS_Store
+
+# Dane poufne
+.env
+*.key
