@@ -1,0 +1,23 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:block": {
+    "description": {
+      "identifier": "osm:stol",
+      "menu_category": {
+        "category": "construction"
+      }
+    },
+    "components": {
+      "minecraft:crafting_table": {
+        "crafting_tags": ["osm_stol"],
+        "table_name": "Stół wojownika"
+      },
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "osm_stol",
+          "render_method": "opaque"
+        }
+      }
+    }
+  }
+}

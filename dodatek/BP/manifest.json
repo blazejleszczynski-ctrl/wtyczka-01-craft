@@ -1,0 +1,23 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Pamiętnik Wojownika - BP",
+    "description": "Paczka zachowania: stół do craftingu, przedmioty i przepisy.",
+    "uuid": "96eb9699-fcae-451f-96d0-279f9d6c9ca6",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 50]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "68a63202-1002-4027-b136-c11fcc1c06de",
+      "version": [1, 0, 0]
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "a40cb73b-8f8a-481d-a838-c2ed4bb68392",
+      "version": [1, 0, 0]
+    }
+  ]
+}

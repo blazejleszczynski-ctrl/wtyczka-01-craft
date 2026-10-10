@@ -1,0 +1,17 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Pamiętnik Wojownika - RP",
+    "description": "Paczka wyglądu: tekstury i nazwy.",
+    "uuid": "a40cb73b-8f8a-481d-a838-c2ed4bb68392",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 50]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "b68cf9dc-2f55-4aae-92df-57cd7e3b1f02",
+      "version": [1, 0, 0]
+    }
+  ]
+}
