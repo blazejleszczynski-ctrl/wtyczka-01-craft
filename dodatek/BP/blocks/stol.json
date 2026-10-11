@@ -12,6 +12,7 @@
         "crafting_tags": ["osm_stol"],
         "table_name": "Stół wojownika"
       },
+      "minecraft:geometry": "minecraft:geometry.full_block",
       "minecraft:material_instances": {
         "*": {
           "texture": "osm_stol",
