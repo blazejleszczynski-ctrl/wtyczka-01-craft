@@ -23,5 +23,5 @@ Jak używać: po każdej sesji dopisujemy krótki wpis w formacie: data - cel se
 
 ## 2026-10-11 (sesja 2)
 - Cel: stół wojownika 5x5.
-- Zrobiono: sprawdzono, że wbudowany stół ma zawsze 3x3; test dymny postaci z 54 polami - okno ma zawsze 3 rzędy; przejście na przepisy bez kształtu w skrzyni 9x3, crafting uruchamia uderzenie stołu; przebudowano etapy w `plan.md` (4 etapy, przedmioty z `przepisy.md`); dodano `przepisy.md` do repozytorium.
+- Zrobiono: sprawdzono, że wbudowany stół ma zawsze 3x3; test dymny postaci z 54 polami - okno ma zawsze 3 rzędy; przejście na przepisy bez kształtu w skrzyni 9x3, crafting uruchamia uderzenie stołu; przebudowano etapy w `plan.md` (4 etapy, przedmioty z `przepisy.md`); w `przepisy.md` dopisano, że kształt jest tylko ilustracją, a każdy przepis musi mieć inny zestaw składników.
 - Dalej: 1b - stół na 27 pól i polska nazwa (`pl_PL.lang`).
