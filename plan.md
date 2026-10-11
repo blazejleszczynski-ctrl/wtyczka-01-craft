@@ -9,6 +9,7 @@ Dodatek, który daje graczowi specjalny stół do craftingu z przepisami na prze
 
 ## Technologia
 Minecraft Bedrock (Windows), dodatek (add-on): zwykłe pliki tekstowe JSON i obrazki, bez programowania w Javie. Wersję gry i format dodatku potwierdzamy w dokumentacji Bedrocka przy starcie etapu 1.
+Od 2026-10-11 także skrypty (Script API, JavaScript) - potrzebne do stołu 5x5, bo wbudowany stół do craftingu ma zawsze siatkę 3x3.
 
 ### Jeden komputer (od 2026-10-11)
 - Pisanie i testowanie na tym samym komputerze: Minecraft Bedrock 1.26.52 jest zainstalowany na komputerze taty.
@@ -22,6 +23,11 @@ Minecraft Bedrock (Windows), dodatek (add-on): zwykłe pliki tekstowe JSON i obr
 Gracz. Stół i przedmioty leżą w grze, a gracz sam je zdobywa i używa. Dodatek niczego nie wymusza.
 
 ## Etapy
-1. Stół do craftingu (osobny blok, obok zwykłego stołu) z dwoma przepisami: maczuga z pryzmarynu i sztylet. Stół nie jest do wykraftowania - gracz dostaje go komendą `/give` (wymaga włączonych cheatów).
+1. Stół wojownika 5x5 z dwoma przepisami: maczuga z pryzmarynu i sztylet. Stół to postać (entity) wyglądająca jak blok, z ekwipunkiem na 54 pola - otwiera się okno dużej skrzyni 9x6: siatka 5x5 po lewej, pole wyniku po prawej. Skrypt sprawdza ułożenie przedmiotów i wstawia wynik. Stół nie jest do wykraftowania - gracz dostaje go komendą (wymaga włączonych cheatów).
+   - 1a. Test dymny: czy postać z 54 polami otwiera okno z 6 rzędami.
+   - 1b. Wygląd postaci jak blok.
+   - 1c. Skrypt i pierwszy przepis (maczuga z pryzmarynu).
+   - 1d. Drugi przepis (sztylet).
+   - Obecny blok `osm:stol` (siatka 3x3) zostaje do udanego testu 1a, potem go usuwamy. Jeśli test 1a się nie uda: przepisy bez kształtu (liczy się zawartość, nie ułożenie) w oknie 9x3.
 2. Pojawianie się stołu w świecie lub w strukturach. Możliwości dodatków Bedrocka do sprawdzenia w dokumentacji przed startem etapu.
 3. Na później, tylko jako ewentualność: umiejętności bohatera i fabuła z książki.
