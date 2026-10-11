@@ -1,10 +1,10 @@
 # przepisy.md
 
-Przepisy i efekty przedmiotów ze Stołu wojownika (siatka 5×5).
+Przepisy i efekty przedmiotów ze Stołu wojownika. Stół działa jak skrzynia 9x3: układasz składniki i uderzasz stół, żeby wykraftować przedmiot. Liczy się, co leży w skrzyni (rodzaj i liczba), a nie gdzie. Siatka 5×5 to ilustracja przepisu, nie wymóg ułożenia.
 
 Jak używać:
 - Każdy przedmiot ma osobny blok `## Nazwa` z tymi samymi polami.
-- Siatka to zawsze 5 wierszy po 5 pól, pola oddzielone spacją, `.` = puste pole.
+- Siatka to zawsze 5 wierszy po 5 pól, pola oddzielone spacją, `.` = puste pole. Każdy przepis musi mieć inny zestaw składników niż pozostałe (rodzaj i liczba).
 - Znaki w siatce muszą być w legendzie. Po 9 kolejne składniki dostają litery A, B, C…
 - `?` = jeszcze nie ustalone.
 - Status: pomysł / ustalony / w grze.

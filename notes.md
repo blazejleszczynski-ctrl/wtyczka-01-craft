@@ -13,3 +13,10 @@ Jak używać: po napisaniu i przetestowaniu większej części kodu dopisujemy s
 - Blok w formacie 1.26.50 wymaga **jednocześnie** `minecraft:geometry` i `minecraft:material_instances`. Bez `geometry` gra po cichu odrzuca blok: nie ma go w ekwipunku, a `/give` zgłasza „nieoczekiwany błąd składni”.
 - Dziennik zawartości trzeba włączyć w Ustawienia -> Twórca (nie Ogólne). Gra zapisuje go do pliku z opóźnieniem - plik bywa pusty zaraz po błędzie, czytać ponownie po chwili.
 - Ścieżka `%LocalAppData%\Packages\Microsoft.MinecraftUWP...\LocalState\games\com.mojang` jest stara - obecna gra używa `%AppData%\Minecraft Bedrock\Users\Shared\games\com.mojang`.
+
+## Lekcje z testu dymnego stołu 5x5 (2026-10-11)
+- Wbudowany stół do craftingu (`minecraft:crafting_table`) ma zawsze siatkę 3x3 - komponent ma tylko `crafting_tags` i `table_name`.
+- Postać z `minecraft:inventory` (`container_type: container`) otwiera okno małej skrzyni (3 rzędy) nawet przy 54 polach. Stąd przepisy bez kształtu w oknie 9x3.
+- Crafting uruchamia uderzenie stołu, a nie samo włożenie składników - inaczej sztylet (żelazo + patyk) powstawałby w trakcie układania artefaktu-miecza, który zawiera te same składniki.
+- Modele z gry są spakowane w `__brarchive` i ich nazw nie da się pewnie odczytać - własny model sześcianu (`geometry.osm.stol_wojownika`) jest pewniejszy.
+- Gra działa po polsku: nazwy trzeba dopisywać także do `pl_PL.lang`, inaczej okno ma tytuł „Nieznany”.

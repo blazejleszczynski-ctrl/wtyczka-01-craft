@@ -20,3 +20,8 @@ Jak używać: po każdej sesji dopisujemy krótki wpis w formacie: data - cel se
 - Cel: opracowanie formatu zapisu przepisów i efektów przedmiotów oraz ustalenie efektów z użytkownikiem. Okno 5×5 robi osobny agent.
 - Zrobiono: utworzono `przepisy.md` (legenda składników 1-9, jeden blok na przedmiot, siatki 5×5; skrypt: 7/7 siatek poprawnych, 0 nieznanych znaków). Ustalono efekty i liczby: Artefakt 2 (okulary z paskami życia mobów), Artefakt (miecz z atakiem specjalnym), Granat, Proca, Sztylet, Strzała wybuchowa (przepis daje 2), Maczuga z pryzmarynu. Rozstrzygnięto: 7 to odłamek pryzmarynu, dolne pole strzały to 6.
 - Dalej: braki oznaczone `?` w `przepisy.md`: Artefakt 2 (sztuki, wygląd), Artefakt (rodzaj, sztuki); rysunki 16×16 wszystkich przedmiotów; sprawdzenie w dokumentacji, co z efektów wymaga skryptu JavaScript.
+
+## 2026-10-11 (sesja 2)
+- Cel: stół wojownika 5x5.
+- Zrobiono: sprawdzono, że wbudowany stół ma zawsze 3x3; test dymny postaci z 54 polami - okno ma zawsze 3 rzędy; przejście na przepisy bez kształtu w skrzyni 9x3, crafting uruchamia uderzenie stołu; przebudowano etapy w `plan.md` (4 etapy, przedmioty z `przepisy.md`); dodano `przepisy.md` do repozytorium.
+- Dalej: 1b - stół na 27 pól i polska nazwa (`pl_PL.lang`).
