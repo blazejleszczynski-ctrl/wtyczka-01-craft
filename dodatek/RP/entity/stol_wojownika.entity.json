@@ -1,0 +1,18 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "osm:stol_wojownika",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/blocks/crafting_table_top"
+      },
+      "geometry": {
+        "default": "geometry.osm.stol_wojownika"
+      },
+      "render_controllers": ["controller.render.default"]
+    }
+  }
+}
