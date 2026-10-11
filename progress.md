@@ -24,4 +24,5 @@ Jak używać: po każdej sesji dopisujemy krótki wpis w formacie: data - cel se
 ## 2026-10-11 (sesja 2)
 - Cel: stół wojownika 5x5.
 - Zrobiono: sprawdzono, że wbudowany stół ma zawsze 3x3; test dymny postaci z 54 polami - okno ma zawsze 3 rzędy; przejście na przepisy bez kształtu w skrzyni 9x3, crafting uruchamia uderzenie stołu; przebudowano etapy w `plan.md` (4 etapy, przedmioty z `przepisy.md`); w `przepisy.md` dopisano, że kształt jest tylko ilustracją, a każdy przepis musi mieć inny zestaw składników.
-- Dalej: 1b - stół na 27 pól i polska nazwa (`pl_PL.lang`).
+- Zrobiono (cd.): test dymny skryptu - uderzenie stołu wykrywane, skrypt czyta i sumuje zawartość skrzyni (11/11 uderzeń bez utraty życia po zmianie formatu postaci na `1.26.0`); stół ma 2000 punktów życia; `@minecraft/server` 2.10.0 działa w grze 1.26.52.
+- Dalej: przedmiot `osm:maczuga_pryzmarynowa` (zwykły, bez efektu), potem przepis na maczugę w skrypcie (5 odłamków pryzmarynu -> 1 maczuga). Odłożone: 1b (27 pól, `pl_PL.lang`).
