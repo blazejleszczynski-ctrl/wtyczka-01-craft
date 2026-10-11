@@ -10,10 +10,13 @@ Dodatek, który daje graczowi specjalny stół do craftingu z przepisami na prze
 ## Technologia
 Minecraft Bedrock (Windows), dodatek (add-on): zwykłe pliki tekstowe JSON i obrazki, bez programowania w Javie. Wersję gry i format dodatku potwierdzamy w dokumentacji Bedrocka przy starcie etapu 1.
 
-### Dwa komputery
-- Komputer taty (ten): tylko pisanie dodatku (edytor tekstu). Minecraft NIE jest tu instalowany, więc nie testujemy tu gry.
-- Komputer użytkownika (Windows): granie i testowanie. Dodatek przenosimy z komputera taty (pendrive lub chmura) jako folder lub plik `.mcaddon`.
-- Skutek: każdy test dodatku to przeniesienie go i uruchomienie gry na komputerze użytkownika.
+### Jeden komputer (od 2026-10-11)
+- Pisanie i testowanie na tym samym komputerze: Minecraft Bedrock 1.26.52 jest zainstalowany na komputerze taty.
+- Dodatek jest podłączony do gry dowiązaniami (junction) - zmiana w `dodatek/` jest od razu widoczna w grze, wystarczy ponownie wejść do świata:
+  - `%AppData%\Minecraft Bedrock\Users\Shared\games\com.mojang\development_behavior_packs\pamietnik_BP` -> `dodatek\BP`
+  - `%AppData%\Minecraft Bedrock\Users\Shared\games\com.mojang\development_resource_packs\pamietnik_RP` -> `dodatek\RP`
+- Logi gry (dziennik zawartości) Claude czyta sam z `%AppData%\Minecraft Bedrock\logs\ContentLog*.txt`.
+- Na komputer użytkownika dodatek trafia przez GitHub (Download ZIP), gdy będzie gotowy.
 
 ## Kto decyduje
 Gracz. Stół i przedmioty leżą w grze, a gracz sam je zdobywa i używa. Dodatek niczego nie wymusza.

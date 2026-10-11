@@ -3,3 +3,13 @@
 Szczegółowe wyjaśnienia napisanych funkcji, podjętych decyzji oraz udanych i nieudanych prób.
 
 Jak używać: po napisaniu i przetestowaniu większej części kodu dopisujemy sekcję: co zrobiliśmy, dlaczego tak, co nie zadziałało.
+
+## Dodatek Bedrock - budowa (2026-10-11)
+- Dwie paczki: BP (zachowanie: bloki, przedmioty, przepisy) i RP (wygląd: tekstury, nazwy). BP w `manifest.json` ma zależność od UUID nagłówka RP, więc gra włącza RP razem z BP.
+- Przedrostek nazw: `osm`. Stół: `osm:stol`, tag przepisów: `osm_stol` (przepis z `"tags": ["osm_stol"]` działa tylko na naszym stole).
+- Format plików: `1.26.50`, `min_engine_version` `[1, 26, 50]` - zgodne z grą 1.26.52.
+
+## Lekcje z testu dymnego stołu
+- Blok w formacie 1.26.50 wymaga **jednocześnie** `minecraft:geometry` i `minecraft:material_instances`. Bez `geometry` gra po cichu odrzuca blok: nie ma go w ekwipunku, a `/give` zgłasza „nieoczekiwany błąd składni”.
+- Dziennik zawartości trzeba włączyć w Ustawienia -> Twórca (nie Ogólne). Gra zapisuje go do pliku z opóźnieniem - plik bywa pusty zaraz po błędzie, czytać ponownie po chwili.
+- Ścieżka `%LocalAppData%\Packages\Microsoft.MinecraftUWP...\LocalState\games\com.mojang` jest stara - obecna gra używa `%AppData%\Minecraft Bedrock\Users\Shared\games\com.mojang`.
