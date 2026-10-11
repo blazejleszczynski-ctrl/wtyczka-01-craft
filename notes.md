@@ -20,3 +20,5 @@ Jak używać: po napisaniu i przetestowaniu większej części kodu dopisujemy s
 - Crafting uruchamia uderzenie stołu, a nie samo włożenie składników - inaczej sztylet (żelazo + patyk) powstawałby w trakcie układania artefaktu-miecza, który zawiera te same składniki.
 - Modele z gry są spakowane w `__brarchive` i ich nazw nie da się pewnie odczytać - własny model sześcianu (`geometry.osm.stol_wojownika`) jest pewniejszy.
 - Gra działa po polsku: nazwy trzeba dopisywać także do `pl_PL.lang`, inaczej okno ma tytuł „Nieznany”.
+- `"deals_damage": "no"` w `minecraft:damage_sensor` działa dopiero w formacie postaci `1.26.0`. W formacie `1.21.0` gra po cichu go pomija (postać traci życie, w logu brak błędu).
+- Moduł skryptów `@minecraft/server` 2.10.0 działa w grze 1.26.52. Zdarzenie uderzenia (`entityHitEntity`) działa także na postaci, która nie przyjmuje obrażeń.
