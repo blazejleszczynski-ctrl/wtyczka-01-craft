@@ -41,3 +41,8 @@ Jak używać: po każdej sesji dopisujemy krótki wpis w formacie: data - cel se
 - Cel: ogłuszenie maczugą z pryzmarynu.
 - Zrobiono: ustalono 20% szansy i 1 s (strzelające moby mogą strzelać w czasie ogłuszenia - zaakceptowane); skrypt nakłada spowolnienie i osłabienie, wpis w logu przy każdym ciosie. Poprawka: zdarzenie `entityHurt` zamiast `entityHitEntity` (to drugie liczyło także puste kliknięcia). Test: 20/20 ciosów w logu, 0 błędów.
 - Dalej: ikona maczugi 16x16, potem proca.
+
+## 2026-10-12 (sesja 4)
+- Cel: ikona maczugi z pryzmarynu 16x16.
+- Zrobiono: ikonę wygenerował skrypt `narzedzia/ikona_maczugi.py`; `item_texture.json` wskazuje własny plik zamiast odłamka pryzmarynu. Test w grze: ikona widoczna, maczuga działa, 0 błędów w logu. Maczuga skończona - wyjątek z etapu 2 zamknięty.
+- Dalej: proca (1d).

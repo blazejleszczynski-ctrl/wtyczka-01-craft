@@ -34,3 +34,8 @@ Jak używać: po napisaniu i przetestowaniu większej części kodu dopisujemy s
 - Przy ciosie maczugą z szansą 20% (`SZANSA_OGLUSZENIA`) cel dostaje spowolnienie i osłabienie na najwyższym poziomie (`amplifier: 255`) na 1 s (`CZAS_OGLUSZENIA` = 20 ticków). Każdy cios zapisuje w logu linię `[maczuga] cel=... obrazenia=... ogluszenie=tak/nie` (`console.warn` trafia do dziennika zawartości).
 - Dlaczego 20% / 1 s: mob przyjmuje najwyżej ~2 ciosy na sekundę, a słabe moby giną od kilku ciosów - dłuższy czas nic im nie robi, wyższa szansa tak (zombie, 4 ciosy: 10% - 34% walk z ogłuszeniem, 20% - 59%).
 - Nieudana próba: `entityHitEntity` zachodzi przy każdym kliknięciu, także gdy mob chwilowo nie przyjmuje obrażeń. Szybkie klikanie dało 61 linii przy golemie, który pada od 20 ciosów - szansa zależała od tempa klikania. Poprawka: `entityHurt` (zachodzi tylko, gdy cel stracił życie). Test: 20/20 linii z `obrazenia=5`, 5 ogłuszeń, 0 linii przy uderzaniu stołu, 0 błędów.
+
+## Ikona maczugi (2026-10-12)
+- Własne tekstury przedmiotów leżą w `dodatek/RP/textures/items/`, a w `item_texture.json` podaje się ścieżkę bez `.png` (`textures/items/maczuga_pryzmarynowa`). Gra wczytała ją od razu, 0 błędów w logu.
+- Ikonę 16x16 rysuje skrypt `narzedzia/ikona_maczugi.py` (Python + Pillow): trzonek po przekątnej, ośmiokątna głowica z obrysem i cieniem, 5 kolców. Poprawki ikony - zmiana skryptu i ponowne uruchomienie.
+- Maczuga w logu zadaje zombie i huskowi 4,92 pkt zamiast 5 - to ich naturalny pancerz. 7,38 pkt to cios krytyczny (w trakcie spadania po skoku, ×1,5).
