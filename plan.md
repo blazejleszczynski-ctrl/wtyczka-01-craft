@@ -32,5 +32,6 @@ Lista przedmiotów, przepisów i efektów: `przepisy.md`.
    - 1d. Pozostałe przepisy, po jednym.
    - Blok `osm:stol` (siatka 3x3) usunięty 2026-10-12.
 2. Efekty przedmiotów z `przepisy.md`, po jednym, od najprostszego (maczuga z pryzmarynu).
+   - Wyjątek (2026-10-12): maczugę z pryzmarynu robimy do końca (efekt, ikona) przed resztą przepisów z 1d, żeby sprawdzić cały schemat przedmiotu z efektem.
 3. Pojawianie się stołu w świecie lub w strukturach. Możliwości dodatków Bedrocka do sprawdzenia w dokumentacji przed startem etapu.
 4. Na później, tylko jako ewentualność: umiejętności bohatera i fabuła z książki.

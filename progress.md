@@ -31,3 +31,8 @@ Jak używać: po każdej sesji dopisujemy krótki wpis w formacie: data - cel se
 - Cel: maczuga z pryzmarynu jako przedmiot i pierwszy przepis w skrypcie (etap 1c).
 - Zrobiono: przedmiot `osm:maczuga_pryzmarynowa` (bez efektu, tymczasowa ikona odłamka pryzmarynu, nazwa wyświetla się po polsku); przepis w `main.js`: 5 odłamków pryzmarynu + uderzenie stołu = maczuga, dokładna zgodność składników. Test: 4/4 próby poprawne, 0 błędów w logu. 2 commity + push.
 - Dalej: usunięcie bloku `osm:stol` (siatka 3x3), potem 1b (27 pól, `pl_PL.lang`) albo 1d (kolejne przepisy).
+
+## 2026-10-12 (sesja 2)
+- Cel: usunięcie bloku `osm:stol`, przepisy (1d), maczuga z pryzmarynu do końca.
+- Zrobiono: usunięto blok `osm:stol` (siatka 3x3); sztylet `osm:sztylet` (bez efektu, przepis 1 żelazo + 1 patyk, test 4/4); w `przepisy.md` oba Artefakty dają po 1 sztuce; maczuga zadaje 5 pkt i ma wytrzymałość 800 (golem padł od 20. ciosu). 3 commity + push.
+- Dalej: ogłuszenie maczugą (plan gotowy: spowolnienie i osłabienie na najwyższym poziomie na 1 s, szansa 10%, wpis w logu przy każdym uderzeniu; do decyzji ograniczenie - strzelające moby mogą strzelać w czasie ogłuszenia), potem ikona maczugi 16x16, potem proca.
