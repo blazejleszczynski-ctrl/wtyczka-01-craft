@@ -1,7 +1,20 @@
-// main.js - skrypt stołu wojownika. Na razie test dymny: po uderzeniu stołu wypisuje na czacie zawartość skrzyni i życie stołu.
-import { world } from "@minecraft/server";
+// main.js - skrypt stołu wojownika: po uderzeniu stołu sprawdza zawartość skrzyni i, gdy pasuje do przepisu, zamienia składniki na wynik.
+import { world, ItemStack } from "@minecraft/server";
 
-// Gracz uderzył stół: zlicz przedmioty w skrzyni według rodzaju i wypisz je graczowi
+// Przepisy bez kształtu: składniki (rodzaj -> liczba) muszą dokładnie zgadzać się z zawartością skrzyni
+const PRZEPISY = [
+  { skladniki: { "minecraft:prismarine_shard": 5 }, wynik: "osm:maczuga_pryzmarynowa", ile: 1 },
+];
+
+// Zwraca przepis, którego składniki są identyczne z sumą przedmiotów w skrzyni, albo undefined
+function znajdzPrzepis(suma) {
+  return PRZEPISY.find((przepis) => {
+    const rodzaje = Object.keys(przepis.skladniki);
+    return rodzaje.length === Object.keys(suma).length && rodzaje.every((id) => suma[id] === przepis.skladniki[id]);
+  });
+}
+
+// Gracz uderzył stół: zlicz przedmioty w skrzyni według rodzaju i wykonaj pasujący przepis
 world.afterEvents.entityHitEntity.subscribe((event) => {
   const gracz = event.damagingEntity;
   const stol = event.hitEntity;
@@ -14,7 +27,10 @@ world.afterEvents.entityHitEntity.subscribe((event) => {
     if (przedmiot) suma[przedmiot.typeId] = (suma[przedmiot.typeId] ?? 0) + przedmiot.amount;
   }
 
-  const opis = Object.entries(suma).map(([id, ile]) => `${ile}x ${id}`).join(", ") || "pusty";
-  const zycie = stol.getComponent("minecraft:health");
-  gracz.sendMessage(`Stół: ${opis} | życie: ${zycie.currentValue}/${zycie.effectiveMax}`);
+  const przepis = znajdzPrzepis(suma);
+  if (!przepis) return;
+
+  skrzynia.clearAll();
+  skrzynia.addItem(new ItemStack(przepis.wynik, przepis.ile));
+  gracz.sendMessage(`Wykonano: ${przepis.wynik}`);
 });
