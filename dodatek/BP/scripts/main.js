@@ -1,5 +1,9 @@
-// main.js - skrypt stołu wojownika: po uderzeniu stołu sprawdza zawartość skrzyni i, gdy pasuje do przepisu, zamienia składniki na wynik.
-import { world, ItemStack } from "@minecraft/server";
+// main.js - skrypt dodatku: crafting na stole wojownika (uderzenie stołu zamienia składniki na wynik) i ogłuszenie maczugą z pryzmarynu.
+import { world, ItemStack, EquipmentSlot } from "@minecraft/server";
+
+// Ogłuszenie maczugą: szansa na uderzenie i czas w tickach (20 ticków = 1 s)
+const SZANSA_OGLUSZENIA = 0.2;
+const CZAS_OGLUSZENIA = 20;
 
 // Przepisy bez kształtu: składniki (rodzaj -> liczba) muszą dokładnie zgadzać się z zawartością skrzyni
 const PRZEPISY = [
@@ -34,4 +38,23 @@ world.afterEvents.entityHitEntity.subscribe((event) => {
   skrzynia.clearAll();
   skrzynia.addItem(new ItemStack(przepis.wynik, przepis.ile));
   gracz.sendMessage(`Wykonano: ${przepis.wynik}`);
+});
+
+// Gracz zranił moba maczugą z pryzmarynu: z szansą SZANSA_OGLUSZENIA ogłusz go (spowolnienie i osłabienie na najwyższym poziomie).
+// entityHurt, a nie entityHitEntity: to drugie zachodzi też przy kliknięciach, gdy mob chwilowo nie przyjmuje obrażeń.
+world.afterEvents.entityHurt.subscribe((event) => {
+  const gracz = event.damageSource.damagingEntity;
+  const cel = event.hurtEntity;
+  if (gracz?.typeId !== "minecraft:player") return;
+
+  const bron = gracz.getComponent("minecraft:equippable").getEquipment(EquipmentSlot.Mainhand);
+  if (bron?.typeId !== "osm:maczuga_pryzmarynowa") return;
+
+  const ogluszenie = Math.random() < SZANSA_OGLUSZENIA;
+  console.warn(`[maczuga] cel=${cel.typeId} obrazenia=${event.damage} ogluszenie=${ogluszenie ? "tak" : "nie"}`);
+  // Mob zabity tym ciosem już nie istnieje - nie da się nałożyć efektu
+  if (!ogluszenie || !cel.isValid) return;
+
+  cel.addEffect("slowness", CZAS_OGLUSZENIA, { amplifier: 255 });
+  cel.addEffect("weakness", CZAS_OGLUSZENIA, { amplifier: 255 });
 });

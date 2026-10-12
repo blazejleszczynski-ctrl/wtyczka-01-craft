@@ -36,3 +36,8 @@ Jak używać: po każdej sesji dopisujemy krótki wpis w formacie: data - cel se
 - Cel: usunięcie bloku `osm:stol`, przepisy (1d), maczuga z pryzmarynu do końca.
 - Zrobiono: usunięto blok `osm:stol` (siatka 3x3); sztylet `osm:sztylet` (bez efektu, przepis 1 żelazo + 1 patyk, test 4/4); w `przepisy.md` oba Artefakty dają po 1 sztuce; maczuga zadaje 5 pkt i ma wytrzymałość 800 (golem padł od 20. ciosu). 3 commity + push.
 - Dalej: ogłuszenie maczugą (plan gotowy: spowolnienie i osłabienie na najwyższym poziomie na 1 s, szansa 10%, wpis w logu przy każdym uderzeniu; do decyzji ograniczenie - strzelające moby mogą strzelać w czasie ogłuszenia), potem ikona maczugi 16x16, potem proca.
+
+## 2026-10-12 (sesja 3)
+- Cel: ogłuszenie maczugą z pryzmarynu.
+- Zrobiono: ustalono 20% szansy i 1 s (strzelające moby mogą strzelać w czasie ogłuszenia - zaakceptowane); skrypt nakłada spowolnienie i osłabienie, wpis w logu przy każdym ciosie. Poprawka: zdarzenie `entityHurt` zamiast `entityHitEntity` (to drugie liczyło także puste kliknięcia). Test: 20/20 ciosów w logu, 0 błędów.
+- Dalej: ikona maczugi 16x16, potem proca.

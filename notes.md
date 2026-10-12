@@ -29,3 +29,8 @@ Jak używać: po napisaniu i przetestowaniu większej części kodu dopisujemy s
 - Ikona może tymczasowo wskazywać obrazek z gry (`textures/items/prismarine_shard` w `item_texture.json`) - nie trzeba własnego pliku PNG.
 - Przepisy w `main.js` to lista `PRZEPISY` (składniki rodzaj -> liczba, wynik, ile). Funkcja `znajdzPrzepis` wymaga dokładnej zgodności: te same rodzaje i te same liczby. Po dopasowaniu skrzynia jest czyszczona (`clearAll`) i dostaje wynik. Test: 4/4 (5 odłamków - maczuga; 6, 4, 5+patyk - bez zmian).
 - `minecraft:damage` dodaje się do 1 pkt ciosu gracza (wpisujemy obrażenia − 1). Broń z `minecraft:durability` sama traci wytrzymałość przy uderzeniu, bez skryptu. Test obrażeń: żelazny golem (100 pkt życia) ginie od 100/obrażenia ciosów (maczuga 5 pkt - 20 ciosów).
+
+## Ogłuszenie maczugą (2026-10-12)
+- Przy ciosie maczugą z szansą 20% (`SZANSA_OGLUSZENIA`) cel dostaje spowolnienie i osłabienie na najwyższym poziomie (`amplifier: 255`) na 1 s (`CZAS_OGLUSZENIA` = 20 ticków). Każdy cios zapisuje w logu linię `[maczuga] cel=... obrazenia=... ogluszenie=tak/nie` (`console.warn` trafia do dziennika zawartości).
+- Dlaczego 20% / 1 s: mob przyjmuje najwyżej ~2 ciosy na sekundę, a słabe moby giną od kilku ciosów - dłuższy czas nic im nie robi, wyższa szansa tak (zombie, 4 ciosy: 10% - 34% walk z ogłuszeniem, 20% - 59%).
+- Nieudana próba: `entityHitEntity` zachodzi przy każdym kliknięciu, także gdy mob chwilowo nie przyjmuje obrażeń. Szybkie klikanie dało 61 linii przy golemie, który pada od 20 ciosów - szansa zależała od tempa klikania. Poprawka: `entityHurt` (zachodzi tylko, gdy cel stracił życie). Test: 20/20 linii z `obrazenia=5`, 5 ogłuszeń, 0 linii przy uderzaniu stołu, 0 błędów.
