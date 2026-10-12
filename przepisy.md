@@ -26,7 +26,7 @@ Jak używać:
 ## Artefakt 2
 - id: osm:artefakt_2
 - rodzaj: ubiór na głowę
-- ile sztuk daje przepis: ?
+- ile sztuk daje przepis: 1
 - przepis:
 ```
 . 1 . 1 .
@@ -98,7 +98,7 @@ Jak używać:
 ## Artefakt
 - id: osm:artefakt
 - rodzaj: ?
-- ile sztuk daje przepis: ?
+- ile sztuk daje przepis: 1
 - przepis:
 ```
 . . 4 . .

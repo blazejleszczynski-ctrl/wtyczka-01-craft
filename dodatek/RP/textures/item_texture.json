@@ -4,6 +4,9 @@
   "texture_data": {
     "osm_maczuga_pryzmarynowa": {
       "textures": "textures/items/prismarine_shard"
+    },
+    "osm_sztylet": {
+      "textures": "textures/items/iron_sword"
     }
   }
 }

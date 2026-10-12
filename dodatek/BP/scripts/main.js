@@ -4,6 +4,7 @@ import { world, ItemStack } from "@minecraft/server";
 // Przepisy bez kształtu: składniki (rodzaj -> liczba) muszą dokładnie zgadzać się z zawartością skrzyni
 const PRZEPISY = [
   { skladniki: { "minecraft:prismarine_shard": 5 }, wynik: "osm:maczuga_pryzmarynowa", ile: 1 },
+  { skladniki: { "minecraft:iron_ingot": 1, "minecraft:stick": 1 }, wynik: "osm:sztylet", ile: 1 },
 ];
 
 // Zwraca przepis, którego składniki są identyczne z sumą przedmiotów w skrzyni, albo undefined
