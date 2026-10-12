@@ -22,3 +22,9 @@ Jak używać: po napisaniu i przetestowaniu większej części kodu dopisujemy s
 - Gra działa po polsku: nazwy trzeba dopisywać także do `pl_PL.lang`, inaczej okno ma tytuł „Nieznany”.
 - `"deals_damage": "no"` w `minecraft:damage_sensor` działa dopiero w formacie postaci `1.26.0`. W formacie `1.21.0` gra po cichu go pomija (postać traci życie, w logu brak błędu).
 - Moduł skryptów `@minecraft/server` 2.10.0 działa w grze 1.26.52. Zdarzenie uderzenia (`entityHitEntity`) działa także na postaci, która nie przyjmuje obrażeń.
+
+## Maczuga i pierwszy przepis (2026-10-12)
+- Przedmiot (format 1.26.50): `minecraft:icon`, `minecraft:display_name`, `minecraft:max_stack_size`, `minecraft:hand_equipped`. Działa od razu, 0 błędów w logu.
+- Nazwa przez `minecraft:display_name` z kluczem `item.osm.maczuga_pryzmarynowa.name`, wpisanym tylko w `en_US.lang` - w polskiej grze wyświetla się poprawnie (najpewniej gra sięga po angielski plik, gdy brak klucza w polskim). Inaczej niż tytuł okna stołu, który bez `pl_PL.lang` miał „Nieznany”.
+- Ikona może tymczasowo wskazywać obrazek z gry (`textures/items/prismarine_shard` w `item_texture.json`) - nie trzeba własnego pliku PNG.
+- Przepisy w `main.js` to lista `PRZEPISY` (składniki rodzaj -> liczba, wynik, ile). Funkcja `znajdzPrzepis` wymaga dokładnej zgodności: te same rodzaje i te same liczby. Po dopasowaniu skrzynia jest czyszczona (`clearAll`) i dostaje wynik. Test: 4/4 (5 odłamków - maczuga; 6, 4, 5+patyk - bez zmian).

@@ -26,3 +26,8 @@ Jak używać: po każdej sesji dopisujemy krótki wpis w formacie: data - cel se
 - Zrobiono: sprawdzono, że wbudowany stół ma zawsze 3x3; test dymny postaci z 54 polami - okno ma zawsze 3 rzędy; przejście na przepisy bez kształtu w skrzyni 9x3, crafting uruchamia uderzenie stołu; przebudowano etapy w `plan.md` (4 etapy, przedmioty z `przepisy.md`); w `przepisy.md` dopisano, że kształt jest tylko ilustracją, a każdy przepis musi mieć inny zestaw składników.
 - Zrobiono (cd.): test dymny skryptu - uderzenie stołu wykrywane, skrypt czyta i sumuje zawartość skrzyni (11/11 uderzeń bez utraty życia po zmianie formatu postaci na `1.26.0`); stół ma 2000 punktów życia; `@minecraft/server` 2.10.0 działa w grze 1.26.52.
 - Dalej: przedmiot `osm:maczuga_pryzmarynowa` (zwykły, bez efektu), potem przepis na maczugę w skrypcie (5 odłamków pryzmarynu -> 1 maczuga). Odłożone: 1b (27 pól, `pl_PL.lang`).
+
+## 2026-10-12
+- Cel: maczuga z pryzmarynu jako przedmiot i pierwszy przepis w skrypcie (etap 1c).
+- Zrobiono: przedmiot `osm:maczuga_pryzmarynowa` (bez efektu, tymczasowa ikona odłamka pryzmarynu, nazwa wyświetla się po polsku); przepis w `main.js`: 5 odłamków pryzmarynu + uderzenie stołu = maczuga, dokładna zgodność składników. Test: 4/4 próby poprawne, 0 błędów w logu. 2 commity + push.
+- Dalej: usunięcie bloku `osm:stol` (siatka 3x3), potem 1b (27 pól, `pl_PL.lang`) albo 1d (kolejne przepisy).

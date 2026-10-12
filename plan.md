@@ -28,7 +28,7 @@ Lista przedmiotów, przepisów i efektów: `przepisy.md`.
 1. Stół wojownika i crafting wszystkich przedmiotów z `przepisy.md` jako zwykłych przedmiotów (bez efektów). Stół to postać (entity) wyglądająca jak blok stołu, z oknem skrzyni 9x3 (27 pól). Przepisy bez kształtu: liczy się, co leży w skrzyni (rodzaj i liczba), a nie gdzie; w skrzyni nie może leżeć nic poza składnikami. Kształt z `przepisy.md` to ilustracja. Stół nie jest do wykraftowania - gracz dostaje go komendą (wymaga włączonych cheatów).
    - 1a. Test dymny okna 54 pól - zrobione: gra zawsze pokazuje okno małej skrzyni (3 rzędy), stąd przepisy bez kształtu.
    - 1b. Wygląd i nazwa stołu: 27 pól, polska nazwa (`pl_PL.lang`).
-   - 1c. Skrypt i pierwszy przepis (maczuga z pryzmarynu). Crafting uruchamia gracz, uderzając stół: skrypt sprawdza zawartość skrzyni, zabiera składniki i wkłada wynik do skrzyni. Gdy zawartość nie pasuje do żadnego przepisu - nic się nie dzieje. Najpierw test dymny: czy uderzenie stołu (który nie przyjmuje obrażeń) wywołuje zdarzenie `entityHitEntity`.
+   - 1c. Skrypt i pierwszy przepis (maczuga z pryzmarynu) - zrobione 2026-10-12. Crafting uruchamia gracz, uderzając stół: skrypt sprawdza zawartość skrzyni, zabiera składniki i wkłada wynik do skrzyni. Gdy zawartość nie pasuje do żadnego przepisu - nic się nie dzieje. Najpierw test dymny: czy uderzenie stołu (który nie przyjmuje obrażeń) wywołuje zdarzenie `entityHitEntity`.
    - 1d. Pozostałe przepisy, po jednym.
    - Blok `osm:stol` (siatka 3x3) usuwamy po udanym 1c.
 2. Efekty przedmiotów z `przepisy.md`, po jednym, od najprostszego (maczuga z pryzmarynu).
