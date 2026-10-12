@@ -6,7 +6,7 @@ Jak używać: po napisaniu i przetestowaniu większej części kodu dopisujemy s
 
 ## Dodatek Bedrock - budowa (2026-10-11)
 - Dwie paczki: BP (zachowanie: bloki, przedmioty, przepisy) i RP (wygląd: tekstury, nazwy). BP w `manifest.json` ma zależność od UUID nagłówka RP, więc gra włącza RP razem z BP.
-- Przedrostek nazw: `osm`. Stół: `osm:stol`, tag przepisów: `osm_stol` (przepis z `"tags": ["osm_stol"]` działa tylko na naszym stole).
+- Przedrostek nazw: `osm`. Stół: postać `osm:stol_wojownika`. Dawny blok `osm:stol` (siatka 3x3, tag przepisów `osm_stol`) usunięto 2026-10-12 - zastąpiła go postać ze skrzynią.
 - Format plików: `1.26.50`, `min_engine_version` `[1, 26, 50]` - zgodne z grą 1.26.52.
 
 ## Lekcje z testu dymnego stołu
