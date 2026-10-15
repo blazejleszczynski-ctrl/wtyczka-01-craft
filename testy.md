@@ -30,3 +30,15 @@ Jak używać:
 9. Tryb kreatywny: rzuć sztyletem. Oczekiwane: sztylet leci, ale zostaje w ręku. ->
 10. Proca (po przeróbce na wspólny moduł) nadal strzela jak w próbach 5-8 procy. ->
 11. Po wszystkim: zamknij świat. Oczekiwane: 0 błędów w logu (sprawdza agent). ->
+
+## Poprawki po teście 1 (2026-10-15)
+Wynik testu 1 (z rozmowy i logu): cios sztyletem od tyłu rozpoznawany dobrze, ale zadawał 12 zamiast 8; kamień z procy widoczny, leci, zużywa bruk, nie rani mobów; 0 błędów w logu.
+1. Proca, pełny naciąg, strzał prosto w zombie z 5 bloków. Oczekiwane: zombie mruga na czerwono; w logu `[proca] trafienie=minecraft:zombie` i `[proca] cel=minecraft:zombie obrazenia=...`. Napisz, czy kamień przeleciał przez zombie. ->
+2. Proca, strzał w ziemię. Oczekiwane: kamień znika po uderzeniu (nie zostaje w ziemi). ->
+3. Łuk, pełny naciąg, 1 strzał (strzały w ekwipunku). Oczekiwane: w logu `[pomiar] minecraft:arrow predkosc=...`. ->
+4. Proca, pełny naciąg. Oczekiwane: w logu `[pomiar] osm:kamien_z_procy predkosc=` ok. 2,3 (wcześniej 4,47). ->
+5. Sztylet: 3 ciosy w golema od tyłu. Oczekiwane: `zycie` spada o 8 na cios (wcześniej 12). ->
+6. Rzut sztyletem pod kątem ok. 45° na płaskim terenie. Oczekiwane: upada ok. 20 bloków od gracza; w logu `[sztylet] trafienie=blok`. ->
+7. Rzut sztyletem w moba. Oczekiwane: mob traci życie, sztylet spada obok; w logu `[sztylet] trafienie=minecraft:...`. ->
+8. Ikony procy i sztyletu w ekwipunku wyglądają jak w opisie z `przepisy.md`. ->
+9. Zamknij świat. Oczekiwane: 0 błędów w logu (sprawdza agent). ->

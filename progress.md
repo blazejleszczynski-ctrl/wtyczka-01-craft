@@ -61,3 +61,8 @@ Jak używać: po każdej sesji dopisujemy krótki wpis w formacie: data - cel se
 - Cel: sztylet - efekty i ikona.
 - Zrobiono: wspólny moduł `wspolne.js` (czas przytrzymania, zużycie, wystrzał; proca przerobiona na niego); sztylet: obrażenia 4, wytrzymałość 500, cios od tyłu podwójny (8), zużycie przy ciosie skryptem, rzut po 0,5 s (pocisk `osm:rzucony_sztylet`, 5 pkt, zasięg 20 bloków, obraca się w locie, po trafieniu spada jako przedmiot); ikona `narzedzia/ikona_sztyletu.py`. Sprawdzenia skryptem: składnia 4/4 plików JS, 14/14 JSON, 20/20 importów, przepisy 8/8. Pominięte: szybkość ataku (`todo.md`).
 - Dalej: test użytkownika w grze (proca i sztylet, `testy.md`), potem granat i strzała wybuchowa.
+
+## 2026-10-15 (poprawki po teście 1)
+- Cel: błędy z testu procy i sztyletu.
+- Zrobiono: analiza logu skryptem (0 błędów; 62 strzały z procy, 0 zranień; współczynnik shoot 1,92 z 50 strzałów; golem -12 na cios sztyletu od tyłu); prędkość pocisków dzielona przez 1,92; wpisy o trafieniach kamienia i sztyletu; cios od tyłu 4 + 4. Nowe próby w `testy.md`.
+- Dalej: test użytkownika, potem granat i strzała wybuchowa.
