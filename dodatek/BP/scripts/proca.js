@@ -1,15 +1,13 @@
 // proca.js - proca: naciąganie (przytrzymanie prawego przycisku) i strzał brukiem z ekwipunku; siła naciągu jak w łuku, zasięg 2/3 łuku.
 // Obrażenia liczy gra: pocisk osm:kamien_z_procy ma obrażenia zależne od prędkości (jak strzała gracza).
 import { world, system, EquipmentSlot, GameMode } from "@minecraft/server";
+import { czasUzycia, zuzyjWReku, wystrzel } from "./wspolne.js";
 
 // Prędkość kamienia przy pełnym naciągu w blokach na tick. Łuk ma 3,0; 2,34 daje 2/3 zasięgu łuku (symulacja lotu w notes.md)
 const PREDKOSC_MAX = 2.34;
 // Ticki do pełnego naciągu (jak łuk: 1 s)
 const PELNY_NACIAG = 20;
 const AMUNICJA = "minecraft:cobblestone";
-
-// Tick, w którym gracz zaczął naciągać procę (id gracza -> tick)
-const poczatekNaciagu = new Map();
 
 // Siła naciągu 0..1 jak w łuku: (t² + 2t) / 3, t w sekundach
 function silaNaciagu(ticki) {
@@ -34,50 +32,19 @@ function zabierzAmunicje(gracz) {
   return false;
 }
 
-// Zużywa 1 punkt wytrzymałości procy w ręku; zużyta do końca proca pęka
-function zuzyjProce(gracz) {
-  const ekwipunek = gracz.getComponent("minecraft:equippable");
-  const proca = ekwipunek.getEquipment(EquipmentSlot.Mainhand);
-  const wytrzymalosc = proca.getComponent("minecraft:durability");
-  if (wytrzymalosc.damage >= wytrzymalosc.maxDurability) {
-    ekwipunek.setEquipment(EquipmentSlot.Mainhand);
-    gracz.dimension.playSound("random.break", gracz.location);
-    return;
-  }
-  wytrzymalosc.damage += 1;
-  ekwipunek.setEquipment(EquipmentSlot.Mainhand, proca);
-}
-
-// Wystrzeliwuje kamień z wysokości oczu gracza w kierunku patrzenia
-function wystrzel(gracz, predkosc) {
-  const kierunek = gracz.getViewDirection();
-  const glowa = gracz.getHeadLocation();
-  const start = { x: glowa.x + kierunek.x * 0.5, y: glowa.y + kierunek.y * 0.5, z: glowa.z + kierunek.z * 0.5 };
-  const kamien = gracz.dimension.spawnEntity("osm:kamien_z_procy", start);
-  const pocisk = kamien.getComponent("minecraft:projectile");
-  pocisk.owner = gracz;
-  pocisk.shoot({ x: kierunek.x * predkosc, y: kierunek.y * predkosc, z: kierunek.z * predkosc });
-  gracz.dimension.playSound("random.bow", gracz.location);
-}
-
-world.afterEvents.itemStartUse.subscribe((event) => {
-  if (event.itemStack?.typeId !== "osm:proca") return;
-  poczatekNaciagu.set(event.source.id, system.currentTick);
-});
-
 // Gracz puścił prawy przycisk: strzał z siłą zależną od czasu naciągu, w trybie przetrwania za 1 bruk i 1 punkt wytrzymałości
 world.afterEvents.itemReleaseUse.subscribe((event) => {
   const gracz = event.source;
-  if (event.itemStack?.typeId !== "osm:proca" || !poczatekNaciagu.has(gracz.id)) return;
-  const sila = silaNaciagu(system.currentTick - poczatekNaciagu.get(gracz.id));
-  poczatekNaciagu.delete(gracz.id);
+  if (event.itemStack?.typeId !== "osm:proca") return;
+  const sila = silaNaciagu(czasUzycia(gracz));
   // Jak łuk: zbyt krótki naciąg nie strzela
   if (sila < 0.1) return;
 
   const tworczy = gracz.getGameMode() === GameMode.Creative;
   if (!tworczy && !zabierzAmunicje(gracz)) return;
-  wystrzel(gracz, sila * PREDKOSC_MAX);
-  if (!tworczy) zuzyjProce(gracz);
+  wystrzel(gracz, "osm:kamien_z_procy", sila * PREDKOSC_MAX);
+  gracz.dimension.playSound("random.bow", gracz.location);
+  if (!tworczy) zuzyjWReku(gracz);
   console.warn(`[proca] sila=${sila.toFixed(2)} predkosc=${(sila * PREDKOSC_MAX).toFixed(2)}`);
 });
 

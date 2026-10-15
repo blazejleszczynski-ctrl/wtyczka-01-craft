@@ -91,9 +91,9 @@ Jak używać:
 ```
 - efekt: krótka broń. Uderzenie z przodu zadaje 4 pkt, uderzenie od tyłu 8 pkt. Atakuje szybciej niż miecz. Można nim rzucać: trzeba się przymierzyć (przytrzymać prawy przycisk), trwa to tyle co naciąg kuszy z szybkim ładowaniem III (ok. 0,5 s).
 - liczby: obrażenia 4 pkt (2 serduszka), od tyłu 8 pkt (4 serduszka); wytrzymałość 500; czas przymierzania do rzutu ok. 0,5 s; szybkość ataku 2,5 uderzenia na sekundę (miecz ok. 1,7; obniżone z 3, żeby sztylet w ręku zadawał ok. 10 pkt na sekundę, tyle co żelazny miecz); rzucony: 5 pkt, zasięg 20 bloków, po rzucie wbija się i można go podnieść jak trójząb
-- wygląd: krótkie ostrze ze stalowo-szarych pikseli, ukośnie jak miecz w ekwipunku, ok. 2/3 długości miecza; jaśniejsza krawędź tnąca, ciemniejszy grzbiet; prosta rączka z brązowego drewna, przy ostrzu mała poprzeczka. W rzucie obraca się w powietrzu. Rysunek 16×16 - do zrobienia.
-- uwaga: atak od tyłu, rzut i szybkość ataku mogą wymagać skryptu JavaScript, do sprawdzenia w dokumentacji.
-- status: w grze (bez efektów, tymczasowa ikona)
+- wygląd: krótkie ostrze ze stalowo-szarych pikseli, ukośnie jak miecz w ekwipunku, ok. 2/3 długości miecza; jaśniejsza krawędź tnąca, ciemniejszy grzbiet; prosta rączka z brązowego drewna, przy ostrzu mała poprzeczka. W rzucie obraca się w powietrzu. Rysunek 16×16 - zrobiony (`narzedzia/ikona_sztyletu.py`).
+- uwaga: atak od tyłu i rzut robi skrypt (`scripts/sztylet.js`). Różnice: rzucony sztylet nie wbija się, tylko spada jako przedmiot do podniesienia; szybkości ataku nie da się zmienić w Bedrocku (`todo.md`).
+- status: w grze
 
 ## Artefakt
 - id: osm:artefakt

@@ -6,7 +6,7 @@
       "textures": "textures/items/maczuga_pryzmarynowa"
     },
     "osm_sztylet": {
-      "textures": "textures/items/iron_sword"
+      "textures": "textures/items/sztylet"
     },
     "osm_proca": {
       "textures": "textures/items/proca"

@@ -1,7 +1,8 @@
 // main.js - skrypt dodatku: crafting na stole wojownika (uderzenie stołu zamienia składniki na wynik) i ogłuszenie maczugą z pryzmarynu.
-// Efekty pozostałych przedmiotów są w osobnych plikach (proca.js).
+// Efekty pozostałych przedmiotów są w osobnych plikach (proca.js, sztylet.js), funkcje wspólne w wspolne.js.
 import { world, ItemStack, EquipmentSlot } from "@minecraft/server";
 import "./proca.js";
+import "./sztylet.js";
 
 // Ogłuszenie maczugą: szansa na uderzenie i czas w tickach (20 ticków = 1 s)
 const SZANSA_OGLUSZENIA = 0.2;

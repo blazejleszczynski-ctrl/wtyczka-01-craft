@@ -1,0 +1,13 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.osm.rzucony_sztylet.lot": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": ["query.camera_rotation(0)", "query.camera_rotation(1)", "query.life_time * 1080.0"]
+        }
+      }
+    }
+  }
+}

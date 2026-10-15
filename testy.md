@@ -17,3 +17,16 @@ Jak używać:
 7. Strzel do zombie raz z krótkim naciągiem (ok. 0,3 s) i raz z pełnym (1 s+). Oczekiwane: pełny naciąg zadaje więcej (w logu linie `[proca] cel=... obrazenia=...`). ->
 8. Strzel raz z łuku (pełny naciąg) i raz z procy (pełny naciąg). Oczekiwane: w logu dwie linie `[pomiar]` - łuk ok. 3,0, kamień ok. 2,34; kamień leci wyraźnie bliżej niż strzała. ->
 9. Po wszystkim: zamknij świat. Oczekiwane: 0 błędów w logu (sprawdza agent). ->
+
+## Sztylet - efekty (2026-10-15)
+1. Ikona sztyletu w ekwipunku: krótkie stalowe ostrze ukośnie, poprzeczka, brązowa rączka. ->
+2. Tryb przetrwania, żelazny golem (`/summon iron_golem`), uderzaj go sztyletem tylko z przodu (golem patrzy na ciebie). Oczekiwane: w logu linie `[sztylet] ... od_tylu=nie`, `zycie` spada o 4 na cios. ->
+3. Uderzaj golema od tyłu (np. gdy idzie w inną stronę). Oczekiwane: linie z `od_tylu=tak`, `zycie` spada o 8 na cios. ->
+4. Pasek wytrzymałości sztyletu spada przy ciosach. ->
+5. Przytrzymaj prawy przycisk ok. 0,2 s i puść. Oczekiwane: brak rzutu. ->
+6. Przytrzymaj prawy przycisk co najmniej 0,5 s i puść, celując w ziemię kilka bloków dalej. Oczekiwane: sztylet znika z ręki, leci obracając się, po upadku leży na ziemi jako przedmiot do podniesienia. ->
+7. Rzuć sztyletem w zombie. Oczekiwane: zombie traci życie (5 pkt), sztylet spada obok. ->
+8. Rzuć sztyletem pod kątem ok. 45° w górę na płaskim terenie. Oczekiwane: upada ok. 20 bloków od gracza. ->
+9. Tryb kreatywny: rzuć sztyletem. Oczekiwane: sztylet leci, ale zostaje w ręku. ->
+10. Proca (po przeróbce na wspólny moduł) nadal strzela jak w próbach 5-8 procy. ->
+11. Po wszystkim: zamknij świat. Oczekiwane: 0 błędów w logu (sprawdza agent). ->

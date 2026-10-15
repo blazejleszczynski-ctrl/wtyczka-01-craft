@@ -56,3 +56,8 @@ Jak używać: po każdej sesji dopisujemy krótki wpis w formacie: data - cel se
 - Cel: proca.
 - Zrobiono: przedmiot `osm:proca` (strzelacz bez amunicji do naciągania, wytrzymałość 1000), przepis 4 patyki + 1 nić, skrypt `proca.js` (siła naciągu jak łuk, strzał brukiem, prędkość 2,34 = 2/3 zasięgu łuku, pomiar prędkości w logu), pocisk `osm:kamien_z_procy` z obrażeniami zależnymi od prędkości, ikona `narzedzia/ikona_procy.py`, test przepisów skryptem 8/8, próby w `testy.md`. Pominięte: obrazek przy naciąganiu (`todo.md`).
 - Dalej: sztylet (punkt 2), potem test użytkownika.
+
+## 2026-10-15 (praca samodzielna wg `zlecenie.md`, punkt 2)
+- Cel: sztylet - efekty i ikona.
+- Zrobiono: wspólny moduł `wspolne.js` (czas przytrzymania, zużycie, wystrzał; proca przerobiona na niego); sztylet: obrażenia 4, wytrzymałość 500, cios od tyłu podwójny (8), zużycie przy ciosie skryptem, rzut po 0,5 s (pocisk `osm:rzucony_sztylet`, 5 pkt, zasięg 20 bloków, obraca się w locie, po trafieniu spada jako przedmiot); ikona `narzedzia/ikona_sztyletu.py`. Sprawdzenia skryptem: składnia 4/4 plików JS, 14/14 JSON, 20/20 importów, przepisy 8/8. Pominięte: szybkość ataku (`todo.md`).
+- Dalej: test użytkownika w grze (proca i sztylet, `testy.md`), potem granat i strzała wybuchowa.

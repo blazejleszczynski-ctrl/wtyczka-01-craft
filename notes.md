@@ -49,3 +49,13 @@ Jak używać: po napisaniu i przetestowaniu większej części kodu dopisujemy s
 - Przybliżenie (zasada 1): proca naciąga się także bez bruku, tylko nie strzela (łuk bez strzał się nie naciąga). Pominięte (zasada 2): obrazek procy zmieniający się w 3 krokach przy naciąganiu - patrz `todo.md`.
 - Ikona: `narzedzia/ikona_procy.py` (Y z ramionami jako lustrzane odbicie względem przekątnej rączki).
 - Test przepisów skryptem: `narzedzia/test_przepisow.mjs` + `narzedzia/proby_przepisow.json` - 8/8.
+
+## Sztylet - efekty (2026-10-15)
+- Obrażenia 4 (`minecraft:damage` 3), wytrzymałość 500. Rzut wymaga przytrzymania prawego przycisku, więc sztylet ma ten sam strzelacz bez amunicji co proca (+ `minecraft:use_animation` `spear` - uniesiona ręka jak przy trójzębie). Skutek uboczny: gra nie zużywa strzelacza przy ciosach, więc zużycie przy ciosie robi skrypt.
+- Wspólny moduł `scripts/wspolne.js`: `czasUzycia` (ticki przytrzymania przycisku), `zuzyj` / `zuzyjWReku` (1 punkt wytrzymałości, pęknięcie z dźwiękiem), `wystrzel` (pocisk z oczu gracza w kierunku patrzenia). Proca przerobiona na ten moduł.
+- Cios od tyłu (`sztylet.js`): atakujący jest za plecami, gdy leży w tylnej połowie płaszczyzny względem obrotu ciała celu (`getRotation().y`). Wtedy skrypt wywołuje `applyDamage(2 × zadane obrażenia)` z rodzajem `override`. Cel jest chwilę nietykalny po ciosie i (jak w wersji Java) przyjmuje wtedy tylko wyższe obrażenia, zadając różnicę - stąd 4 + 4 = 8. Do sprawdzenia w grze: linia `[sztylet] ... zycie=` (golem 100 pkt: z przodu -4, od tyłu -8 na cios). Cios krytyczny od tyłu też jest podwojony.
+- Rzut: po co najmniej 10 tickach (0,5 s) przytrzymania. Pocisk `osm:rzucony_sztylet` (wzór: rzucony trójząb z gry) ma stałe 5 pkt obrażeń, prędkość 1,06 bloku/tick = zasięg 20 bloków (ta sama symulacja co proca). Po trafieniu skrypt usuwa pocisk i upuszcza w tym miejscu zapamiętany sztylet (z wytrzymałością pomniejszoną o 1, jak trójząb). W trybie kreatywnym sztylet zostaje w ręku.
+- Przybliżenie (zasada 1): rzucony sztylet nie wbija się, tylko spada jako przedmiot do podniesienia. Sztylet w locie po ponownym wczytaniu świata przepada (pamięć skryptu się zeruje).
+- Obrót w locie: własna animacja `animation.osm.rzucony_sztylet.lot` - płaski obrazek zwrócony do kamery (jak `animation.actor.billboard`) obracany 3 razy na sekundę.
+- Pominięte (zasada 2): szybkość ataku 2,5 na sekundę - patrz `todo.md`.
+- Ikona: `narzedzia/ikona_sztyletu.py` (ostrze 3 piksele: ciemny grzbiet, stal, jasna krawędź; poprzeczka prostopadła; rączka z gałką).
