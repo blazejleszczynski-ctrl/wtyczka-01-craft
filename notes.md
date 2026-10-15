@@ -59,3 +59,8 @@ Jak używać: po napisaniu i przetestowaniu większej części kodu dopisujemy s
 - Obrót w locie: własna animacja `animation.osm.rzucony_sztylet.lot` - płaski obrazek zwrócony do kamery (jak `animation.actor.billboard`) obracany 3 razy na sekundę.
 - Pominięte (zasada 2): szybkość ataku 2,5 na sekundę - patrz `todo.md`.
 - Ikona: `narzedzia/ikona_sztyletu.py` (ostrze 3 piksele: ciemny grzbiet, stal, jasna krawędź; poprzeczka prostopadła; rączka z gałką).
+
+## Poprawki po teście 1 - proca (2026-10-15)
+- `shoot()` nadaje pociskowi prędkość ok. 1,92 raza większą niż podana: 50 strzałów z pełnym naciągiem, pomiar tick po wystrzale, od 1,90 do 1,97. Kamień leciał 4,47 zamiast 2,34, rzucony sztylet też za szybko. Poprawka: `wystrzel` dzieli prędkość przez `MNOZNIK_SHOOT` = 1,92.
+- Kamień był widoczny, leciał i zużywał bruk, ale w logu 0 zranień moba w 62 strzałach. Przyczyna nieznana. Diagnoza: kamień nie znika już sam przy trafieniu (`stick_in_ground` zamiast `remove_on_hit`), tylko usuwa go skrypt po wpisie `[proca] trafienie=mob/blok` - log pokaże, czy kamień w ogóle trafia moby.
+- Brak pomiaru łuku (0 linii `[pomiar] minecraft:arrow`) - założenie „łuk = 3,0” wciąż niesprawdzone.

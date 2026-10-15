@@ -23,9 +23,11 @@
             "power_multiplier": 0.97,
             "knockback": true,
             "semi_random_diff_damage": true,
-            "destroy_on_hit": true
+            "destroy_on_hit": false
           },
-          "remove_on_hit": {}
+          "stick_in_ground": {
+            "shake_time": 0
+          }
         }
       },
       "minecraft:pushable": {

@@ -58,7 +58,18 @@ world.afterEvents.entitySpawn.subscribe(({ entity }) => {
   }, 1);
 });
 
-// Kamień trafił moba: wpis w logu z obrażeniami zadanymi przez grę (do sprawdzenia zależności od naciągu).
+// Kamień trafił moba albo blok: wpis w logu i usunięcie kamienia (gra go nie usuwa, żeby skrypt zdążył go odczytać)
+function trafienie(event) {
+  const kamien = event.projectile;
+  if (!kamien.isValid || kamien.typeId !== "osm:kamien_z_procy") return;
+  const cel = event.getEntityHit?.().entity;
+  console.warn(`[proca] trafienie=${cel ? cel.typeId : "blok"}`);
+  kamien.remove();
+}
+world.afterEvents.projectileHitEntity.subscribe(trafienie);
+world.afterEvents.projectileHitBlock.subscribe(trafienie);
+
+// Kamień zranił moba: wpis w logu z obrażeniami zadanymi przez grę (do sprawdzenia zależności od naciągu).
 // Pocisk znika przy trafieniu, więc strzał z procy rozpoznajemy po rodzaju obrażeń i procy w ręku strzelającego.
 world.afterEvents.entityHurt.subscribe((event) => {
   const gracz = event.damageSource.damagingEntity;

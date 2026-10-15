@@ -28,8 +28,12 @@ export function zuzyjWReku(gracz) {
   if (!przedmiot) gracz.dimension.playSound("random.break", gracz.location);
 }
 
+// shoot() nadaje pociskowi prędkość ok. 1,92 raza większą niż podana (pomiar w grze: 50 strzałów, od 1,90 do 1,97) - dzielimy przez nią
+const MNOZNIK_SHOOT = 1.92;
+
 // Tworzy pocisk na wysokości oczu gracza i wystrzeliwuje go w kierunku patrzenia (prędkość w blokach na tick); zwraca pocisk
-export function wystrzel(gracz, typPocisku, predkosc) {
+export function wystrzel(gracz, typPocisku, predkoscDocelowa) {
+  const predkosc = predkoscDocelowa / MNOZNIK_SHOOT;
   const kierunek = gracz.getViewDirection();
   const glowa = gracz.getHeadLocation();
   const start = { x: glowa.x + kierunek.x * 0.5, y: glowa.y + kierunek.y * 0.5, z: glowa.z + kierunek.z * 0.5 };
