@@ -46,3 +46,8 @@ Jak używać: po każdej sesji dopisujemy krótki wpis w formacie: data - cel se
 - Cel: ikona maczugi z pryzmarynu 16x16.
 - Zrobiono: ikonę wygenerował skrypt `narzedzia/ikona_maczugi.py`; `item_texture.json` wskazuje własny plik zamiast odłamka pryzmarynu. Test w grze: ikona widoczna, maczuga działa, 0 błędów w logu. Maczuga skończona - wyjątek z etapu 2 zamknięty.
 - Dalej: proca (1d).
+
+## 2026-10-12 (sesja 5)
+- Cel: proca (1d).
+- Zrobiono: nic w kodzie. Ustalono plan pierwszego commita (czeka na zgodę użytkownika): `BP/items/proca.json` (zwykły przedmiot, stos 1, kategoria equipment, wzór jak `sztylet.json`); przepis w `main.js` 4 patyki + 1 nić -> 1 proca (zestaw unikalny); tymczasowa ikona `textures/items/bow_standby` w `item_texture.json`; nazwa „Proca” w `en_US.lang`; status w `przepisy.md` -> w grze. Test: 4/4 próby (poprawny przepis; 3 patyki + nić - nic; z dodatkowym żelazem - nic; sztylet nadal działa), 0 błędów w logu.
+- Dalej: przedstawić powyższy plan do zgody i wykonać; potem sprawdzić w dokumentacji naciąganie i strzelanie brukiem (`minecraft:shooter`, `minecraft:use_modifiers`) - wtedy `proca.json` się zmieni.
