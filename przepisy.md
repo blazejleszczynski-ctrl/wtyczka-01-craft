@@ -37,7 +37,7 @@ Jak używać:
 ```
 - efekt: pokazuje nad mobami nazwę moba, pasek życia z kresek i efekty, które mają na sobie (np. trucizna)
 - liczby: działa cały czas, nie zużywa się
-- wygląd: ? (na szkicu przypomina okulary)
+- wygląd: okulary, tylko ikona 16×16 w ekwipunku (na głowie postaci niewidoczne). Szkła biało-przezroczyste jak szkło w Minecrafcie, oprawki brązowe z patyków.
 - uwaga: wyświetlanie pasków wymaga skryptu JavaScript, do sprawdzenia w dokumentacji
 - status: pomysł
 
@@ -54,7 +54,7 @@ Jak używać:
 . . 2 . .
 ```
 - efekt: rzucany granat wybucha od razu po trafieniu (w moba, blok lub ziemię), leci maksymalnie 20 bloków. Rani tylko moby, nie niszczy bloków. Moby w promieniu 5 bloków od wybuchu tracą życie, im bliżej, tym więcej. Wygląd wybuchu: błysk, trochę dymu i czerwone cząsteczki. Dźwięk: jak pękające narzędzie (dźwięk zniszczenia narzędzia w grze).
-- liczby: zasięg rzutu 20 bloków, promień wybuchu 5 bloków, maksymalne obrażenia 25 serduszek (50 pkt) dla moba stojącego na granacie; spadek obrażeń z odległością: liniowo do 0 na krawędzi promienia (założenie do potwierdzenia)
+- liczby: zasięg rzutu 20 bloków, promień wybuchu 5 bloków, maksymalne obrażenia 25 serduszek (50 pkt) dla moba stojącego na granacie; spadek obrażeń z odległością: liniowo do 0 na krawędzi promienia (potwierdzone 2026-10-15: 0 bloków 50 pkt, 1 blok 40 pkt, 2,5 bloku 25 pkt, 4 bloki 10 pkt, 5 bloków 0)
 - wygląd: okrągła ciemnoszara metalowa kula, trochę większa niż śnieżka. Na górze mała zawleczka z jasnego żelaza i czerwony lont z iskrą, na boku czerwony pasek, w lewym górnym rogu jasny połysk. Rysunek 16×16 - do zrobienia.
 - uwaga: rzut, wybuch bez niszczenia bloków i obrażenia zależne od odległości wymagają skryptu JavaScript, do sprawdzenia w dokumentacji.
 - status: pomysł
@@ -93,11 +93,11 @@ Jak używać:
 - liczby: obrażenia 4 pkt (2 serduszka), od tyłu 8 pkt (4 serduszka); wytrzymałość 500; czas przymierzania do rzutu ok. 0,5 s; szybkość ataku 2,5 uderzenia na sekundę (miecz ok. 1,7; obniżone z 3, żeby sztylet w ręku zadawał ok. 10 pkt na sekundę, tyle co żelazny miecz); rzucony: 5 pkt, zasięg 20 bloków, po rzucie wbija się i można go podnieść jak trójząb
 - wygląd: krótkie ostrze ze stalowo-szarych pikseli, ukośnie jak miecz w ekwipunku, ok. 2/3 długości miecza; jaśniejsza krawędź tnąca, ciemniejszy grzbiet; prosta rączka z brązowego drewna, przy ostrzu mała poprzeczka. W rzucie obraca się w powietrzu. Rysunek 16×16 - do zrobienia.
 - uwaga: atak od tyłu, rzut i szybkość ataku mogą wymagać skryptu JavaScript, do sprawdzenia w dokumentacji.
-- status: pomysł
+- status: w grze (bez efektów, tymczasowa ikona)
 
 ## Artefakt
 - id: osm:artefakt
-- rodzaj: ?
+- rodzaj: miecz trzymany w ręku
 - ile sztuk daje przepis: 1
 - przepis:
 ```
@@ -143,8 +143,8 @@ Jak używać:
 . 7 . . .
 7 . . . .
 ```
-- efekt: broń wręcz. Zadaje 5 pkt obrażeń, a trafiony mob ma 10% szans na ogłuszenie na 1 sekundę (nie może się ruszać ani atakować).
-- liczby: obrażenia 5 pkt (2,5 serduszka); szansa na ogłuszenie 10%, czas 1 s; wytrzymałość 800
-- wygląd: ukośna maczuga. Dolny koniec to cienka ciemnozielona rączka, górny to gruba ciężka głowica z kilku turkusowych odłamków pryzmarynu połączonych jak kryształ, z jasnymi niebieskawymi krawędziami dającymi połysk. Rysunek 16×16 - do zrobienia.
-- uwaga: ogłuszenie można zrobić bez skryptu efektami gry (np. bardzo silne spowolnienie), do sprawdzenia w dokumentacji; losowanie szansy 10% najpewniej wymaga skryptu JavaScript.
-- status: pomysł
+- efekt: broń wręcz. Zadaje 5 pkt obrażeń, a trafiony mob ma 20% szans na ogłuszenie na 1 sekundę (nie może się ruszać ani atakować).
+- liczby: obrażenia 5 pkt (2,5 serduszka); szansa na ogłuszenie 20%, czas 1 s; wytrzymałość 800
+- wygląd: ukośna maczuga. Dolny koniec to cienka ciemnozielona rączka, górny to gruba ciężka głowica z kilku turkusowych odłamków pryzmarynu połączonych jak kryształ, z jasnymi niebieskawymi krawędziami dającymi połysk. Rysunek 16×16 - zrobiony (`narzedzia/ikona_maczugi.py`).
+- uwaga: ogłuszenie zrobione skryptem: spowolnienie i osłabienie na najwyższym poziomie na 1 s (strzelające moby mogą w tym czasie strzelać - zaakceptowane).
+- status: w grze
