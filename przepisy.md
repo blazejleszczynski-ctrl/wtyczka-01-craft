@@ -73,9 +73,9 @@ Jak używać:
 ```
 - efekt: strzela brukiem. Trzeba naciągać (przytrzymać prawy przycisk) jak w łuku. Obrażenia zależą od prędkości pocisku, tak jak przy strzale z łuku. Zużywa amunicję (bruk).
 - liczby: zasięg o jedną trzecią krótszy niż łuk (czyli 2/3 zasięgu łuku); wytrzymałość 1000; amunicja: bruk (minecraft:cobblestone)
-- wygląd: brązowa drewniana litera Y ustawiona ukośnie (rączka w dolnym lewym rogu, rozwidlenie w prawym górnym). Między końcami rozwidlenia dwie jasne linie z nici, pośrodku szara kieszeń na kamień. Przy naciąganiu obrazek zmienia się w trzech krokach: nić coraz bardziej rozciągnięta, w kieszeni widać szary bruk. Rysunek 16×16 - do zrobienia.
-- uwaga: pocisk-kamień z własną prędkością i obrażeniami może wymagać skryptu JavaScript, do sprawdzenia w dokumentacji.
-- status: pomysł
+- wygląd: brązowa drewniana litera Y ustawiona ukośnie (rączka w dolnym lewym rogu, rozwidlenie w prawym górnym). Między końcami rozwidlenia dwie jasne linie z nici, pośrodku szara kieszeń na kamień. Przy naciąganiu obrazek zmienia się w trzech krokach: nić coraz bardziej rozciągnięta, w kieszeni widać szary bruk. Rysunek 16×16 - zrobiony (`narzedzia/ikona_procy.py`).
+- uwaga: naciąganie daje strzelacz z gry bez amunicji, strzał brukiem robi skrypt (`scripts/proca.js`). Różnice: proca naciąga się także bez bruku (tylko nie strzela); obrazek przy naciąganiu się nie zmienia (`todo.md`).
+- status: w grze
 
 ## Sztylet
 - id: osm:sztylet

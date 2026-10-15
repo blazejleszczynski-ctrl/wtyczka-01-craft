@@ -7,6 +7,9 @@
     },
     "osm_sztylet": {
       "textures": "textures/items/iron_sword"
+    },
+    "osm_proca": {
+      "textures": "textures/items/proca"
     }
   }
 }

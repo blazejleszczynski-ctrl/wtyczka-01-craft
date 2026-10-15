@@ -39,3 +39,13 @@ Jak używać: po napisaniu i przetestowaniu większej części kodu dopisujemy s
 - Własne tekstury przedmiotów leżą w `dodatek/RP/textures/items/`, a w `item_texture.json` podaje się ścieżkę bez `.png` (`textures/items/maczuga_pryzmarynowa`). Gra wczytała ją od razu, 0 błędów w logu.
 - Ikonę 16x16 rysuje skrypt `narzedzia/ikona_maczugi.py` (Python + Pillow): trzonek po przekątnej, ośmiokątna głowica z obrysem i cieniem, 5 kolców. Poprawki ikony - zmiana skryptu i ponowne uruchomienie.
 - Maczuga w logu zadaje zombie i huskowi 4,92 pkt zamiast 5 - to ich naturalny pancerz. 7,38 pkt to cios krytyczny (w trakcie spadania po skoku, ×1,5).
+
+## Proca (2026-10-15)
+- Przedmiot `osm:proca`: `minecraft:shooter` z pustą listą amunicji + `minecraft:use_modifiers` (`use_duration` 3600 s, spowolnienie 0,35). Strzelacz z gry przyjmuje tylko amunicję ze składnikiem `minecraft:projectile`, a bruk go nie ma - dlatego gra sama nic nie wystrzeliwuje, a strzelacz służy wyłącznie do naciągania (wiki Bedrock: strzelacz da się naciągać bez amunicji, MCPE-228331).
+- Strzał robi skrypt `scripts/proca.js` (podłączony w `main.js`): `itemStartUse` zapamiętuje tick, `itemReleaseUse` liczy siłę jak w łuku `(t² + 2t) / 3` (t w sekundach, pełny naciąg 1 s, poniżej 0,1 brak strzału), zabiera 1 bruk z ekwipunku, tworzy pocisk `osm:kamien_z_procy` i wystrzeliwuje go (`shoot`) z prędkością siła × 2,34. W trybie kreatywnym bez bruku i bez zużycia. Wytrzymałość 1000 zużywa skrypt (gra zużywa strzelacz tylko przy własnym strzale).
+- Zasięg 2/3 łuku: symulacja lotu (grawitacja 0,05, opór 0,99 na tick, najlepszy kąt): łuk 3,0 bloku/tick - 117 bloków; 2,34 bloku/tick - 78 bloków = 2/3. Założenie „łuk = 3,0” (wartość z wersji Java) sprawdza w grze pomiar `[pomiar]` w logu.
+- Obrażenia liczy gra: pocisk ma `impact_damage` skopiowane ze strzały gracza z gry (`damage` 1, `power_multiplier` 0,97) - obrażenia rosną z prędkością. Bez trafień krytycznych. Wygląd pocisku: wzór śnieżki z gry (płaski obrazek zwrócony do kamery) z teksturą bruku.
+- Wzory z gry: pliki gry leżą w `data/resource_packs/vanilla/__brarchive` i `data/behavior_packs/vanilla/__brarchive`; tekst JSON da się z nich wyciągnąć skryptem (szukanie `"identifier":"minecraft:..."`).
+- Przybliżenie (zasada 1): proca naciąga się także bez bruku, tylko nie strzela (łuk bez strzał się nie naciąga). Pominięte (zasada 2): obrazek procy zmieniający się w 3 krokach przy naciąganiu - patrz `todo.md`.
+- Ikona: `narzedzia/ikona_procy.py` (Y z ramionami jako lustrzane odbicie względem przekątnej rączki).
+- Test przepisów skryptem: `narzedzia/test_przepisow.mjs` + `narzedzia/proby_przepisow.json` - 8/8.

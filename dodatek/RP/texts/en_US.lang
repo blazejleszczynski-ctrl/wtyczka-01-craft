@@ -1,3 +1,5 @@
 entity.osm:stol_wojownika.name=Stół wojownika
 item.osm.maczuga_pryzmarynowa.name=Maczuga z pryzmarynu
 item.osm.sztylet.name=Sztylet
+item.osm.proca.name=Proca
+entity.osm:kamien_z_procy.name=Kamień z procy

@@ -1,0 +1,10 @@
+[
+ [{"minecraft:prismarine_shard":5}, "osm:maczuga_pryzmarynowa"],
+ [{"minecraft:iron_ingot":1,"minecraft:stick":1}, "osm:sztylet"],
+ [{"minecraft:stick":4,"minecraft:string":1}, "osm:proca"],
+ [{"minecraft:stick":3,"minecraft:string":1}, null],
+ [{"minecraft:stick":5,"minecraft:string":1}, null],
+ [{"minecraft:stick":4,"minecraft:string":2}, null],
+ [{"minecraft:stick":4,"minecraft:string":1,"minecraft:iron_ingot":1}, null],
+ [{"minecraft:stick":4}, null]
+]

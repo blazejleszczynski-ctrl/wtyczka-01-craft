@@ -1,0 +1,37 @@
+{
+  "format_version": "1.26.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "osm:kamien_z_procy",
+      "is_spawnable": false,
+      "is_summonable": true
+    },
+    "components": {
+      "minecraft:collision_box": {
+        "width": 0.25,
+        "height": 0.25
+      },
+      "minecraft:physics": {},
+      "minecraft:projectile": {
+        "anchor": 1,
+        "offset": [0, -0.1, 0],
+        "gravity": 0.05,
+        "hit_sound": "bow.hit",
+        "on_hit": {
+          "impact_damage": {
+            "damage": 1,
+            "power_multiplier": 0.97,
+            "knockback": true,
+            "semi_random_diff_damage": true,
+            "destroy_on_hit": true
+          },
+          "remove_on_hit": {}
+        }
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      }
+    }
+  }
+}

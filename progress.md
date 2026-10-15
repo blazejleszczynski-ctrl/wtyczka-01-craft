@@ -51,3 +51,8 @@ Jak używać: po każdej sesji dopisujemy krótki wpis w formacie: data - cel se
 - Cel: proca (1d).
 - Zrobiono: nic w kodzie. Ustalono plan pierwszego commita (czeka na zgodę użytkownika): `BP/items/proca.json` (zwykły przedmiot, stos 1, kategoria equipment, wzór jak `sztylet.json`); przepis w `main.js` 4 patyki + 1 nić -> 1 proca (zestaw unikalny); tymczasowa ikona `textures/items/bow_standby` w `item_texture.json`; nazwa „Proca” w `en_US.lang`; status w `przepisy.md` -> w grze. Test: 4/4 próby (poprawny przepis; 3 patyki + nić - nic; z dodatkowym żelazem - nic; sztylet nadal działa), 0 błędów w logu.
 - Dalej: przedstawić powyższy plan do zgody i wykonać; potem sprawdzić w dokumentacji naciąganie i strzelanie brukiem (`minecraft:shooter`, `minecraft:use_modifiers`) - wtedy `proca.json` się zmieni.
+
+## 2026-10-15 (praca samodzielna wg `zlecenie.md`, punkt 1)
+- Cel: proca.
+- Zrobiono: przedmiot `osm:proca` (strzelacz bez amunicji do naciągania, wytrzymałość 1000), przepis 4 patyki + 1 nić, skrypt `proca.js` (siła naciągu jak łuk, strzał brukiem, prędkość 2,34 = 2/3 zasięgu łuku, pomiar prędkości w logu), pocisk `osm:kamien_z_procy` z obrażeniami zależnymi od prędkości, ikona `narzedzia/ikona_procy.py`, test przepisów skryptem 8/8, próby w `testy.md`. Pominięte: obrazek przy naciąganiu (`todo.md`).
+- Dalej: sztylet (punkt 2), potem test użytkownika.
