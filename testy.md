@@ -53,3 +53,16 @@ Wynik testu 1 (z rozmowy i logu): cios sztyletem od tyłu rozpoznawany dobrze, a
 7. Rzuć granatem pod kątem ok. 45° w górę na płaskim terenie. Oczekiwane: wybuch ok. 20 bloków od gracza. ->
 8. Tryb kreatywny: rzut. Oczekiwane: granat leci i wybucha, liczba granatów w ręku się nie zmienia. ->
 9. Zamknij świat. Oczekiwane: 0 błędów w logu (sprawdza agent). ->
+
+## Strzała wybuchowa (2026-10-19)
+1. Włóż do stołu 8 prochu + 1 strzałę, uderz stół. Oczekiwane: w skrzyni 2 strzały wybuchowe z ikoną strzały z kulką i lontem zamiast grotu. ->
+2. Włóż 7 prochu + 1 strzałę, uderz stół. Oczekiwane: nic się nie zmienia. ->
+3. Strzała wybuchowa da się włożyć w drugą rękę (pole tarczy). ->
+4. Tryb przetrwania: łuk w ręku, strzały wybuchowe w drugiej ręce, kilka zwykłych strzał w ekwipunku. Strzel w ziemię ok. 15 bloków dalej. Oczekiwane: za strzałą czerwone iskry, przy uderzeniu wybuch jak mniejsze TNT, dziura w ziemi; ubywa 1 strzała wybuchowa, liczba zwykłych strzał bez zmian; w logu `[strzala] wystrzal wybuchowej` i `[strzala] wybuch trafienie=blok`. ->
+5. Strzel w zombie. Oczekiwane: wybuch na zombie, zombie ginie albo traci dużo życia; w logu `trafienie=minecraft:zombie`. ->
+6. Strzel w ścianę 3 bloki przed sobą. Oczekiwane: gracz traci życie od wybuchu. ->
+7. Porównanie z TNT: postaw TNT na płaskim terenie i odpal, obok strzel strzałą wybuchową w ziemię. Oczekiwane: dziura od strzały wyraźnie mniejsza niż od TNT. ->
+8. Bez strzał wybuchowych w drugiej ręce strzel z łuku. Oczekiwane: zwykła strzała, bez wybuchu i iskier. ->
+9. Tylko strzały wybuchowe (0 zwykłych strzał w ekwipunku). Oczekiwane: łuk się nie naciąga (znane ograniczenie). ->
+10. Tryb kreatywny, strzały wybuchowe w drugiej ręce: strzał. Oczekiwane: wybuch, liczba strzał wybuchowych bez zmian. ->
+11. Zamknij świat. Oczekiwane: 0 błędów w logu (sprawdza agent). ->

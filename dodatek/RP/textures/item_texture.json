@@ -13,6 +13,9 @@
     },
     "osm_granat": {
       "textures": "textures/items/granat"
+    },
+    "osm_strzala_wybuchowa": {
+      "textures": "textures/items/strzala_wybuchowa"
     }
   }
 }

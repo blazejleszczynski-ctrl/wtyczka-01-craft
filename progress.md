@@ -71,3 +71,8 @@ Jak używać: po każdej sesji dopisujemy krótki wpis w formacie: data - cel se
 - Cel: granat. Przed startem: analiza logu po poprawkach 1 (prędkość kamienia 16/16 dobrze, sztylet od tyłu −8 dobrze, kamień trafia moby, ale nie rani - wątek w `todo.md`).
 - Zrobiono: przedmiot `osm:granat` (przepis 4 żelaza + 4 proch + 1 kula ognia = 4 granaty), skrypt `granat.js` (rzut na 20 bloków, wybuch po trafieniu, obrażenia 50 pkt liniowo do 0 w promieniu 5 bloków, tylko moby, bez niszczenia bloków, błysk, dym, czerwone iskry, dźwięk pęknięcia), pocisk `osm:rzucony_granat`, ikona `narzedzia/ikona_granatu.py`. Sprawdzenia skryptem: składnia 5/5, JSON 17/17, importy 24/24, przepisy 13/13.
 - Dalej: strzała wybuchowa (punkt 4), potem test użytkownika.
+
+## 2026-10-19 (praca samodzielna wg `zlecenie.md`, punkt 4)
+- Cel: strzała wybuchowa.
+- Zrobiono: przedmiot `osm:strzala_wybuchowa` (przepis 8 prochu + 1 strzała = 2), skrypt `strzala.js` (łuk strzela wybuchową, gdy leży w drugiej ręce; wybuch 2,67 po trafieniu, niszczy bloki, rani wszystkich; smuga czerwonych iskier), ikona `narzedzia/ikona_strzaly_wybuchowej.py`. Sprawdzenia skryptem: składnia 6/6, JSON 18/18, importy 29/29, przepisy 17/17. Przybliżenie: do naciągnięcia łuku potrzebna 1 zwykła strzała.
+- Dalej: test użytkownika (granat, strzała wybuchowa, zaległe próby poprawek 1 - kamień z procy), potem artefakt.

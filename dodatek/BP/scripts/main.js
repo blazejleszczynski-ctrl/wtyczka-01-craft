@@ -1,9 +1,10 @@
 // main.js - skrypt dodatku: crafting na stole wojownika (uderzenie stołu zamienia składniki na wynik) i ogłuszenie maczugą z pryzmarynu.
-// Efekty pozostałych przedmiotów są w osobnych plikach (proca.js, sztylet.js, granat.js), funkcje wspólne w wspolne.js.
+// Efekty pozostałych przedmiotów są w osobnych plikach (proca.js, sztylet.js, granat.js, strzala.js), funkcje wspólne w wspolne.js.
 import { world, ItemStack, EquipmentSlot } from "@minecraft/server";
 import "./proca.js";
 import "./sztylet.js";
 import "./granat.js";
+import "./strzala.js";
 
 // Ogłuszenie maczugą: szansa na uderzenie i czas w tickach (20 ticków = 1 s)
 const SZANSA_OGLUSZENIA = 0.2;
@@ -15,6 +16,7 @@ const PRZEPISY = [
   { skladniki: { "minecraft:iron_ingot": 1, "minecraft:stick": 1 }, wynik: "osm:sztylet", ile: 1 },
   { skladniki: { "minecraft:stick": 4, "minecraft:string": 1 }, wynik: "osm:proca", ile: 1 },
   { skladniki: { "minecraft:iron_ingot": 4, "minecraft:gunpowder": 4, "minecraft:fire_charge": 1 }, wynik: "osm:granat", ile: 4 },
+  { skladniki: { "minecraft:gunpowder": 8, "minecraft:arrow": 1 }, wynik: "osm:strzala_wybuchowa", ile: 2 },
 ];
 
 // Zwraca przepis, którego składniki są identyczne z sumą przedmiotów w skrzyni, albo undefined

@@ -82,3 +82,11 @@ Jak używać: po napisaniu i przetestowaniu większej części kodu dopisujemy s
 - Przybliżenie (zasada 1): pancerz moba zmniejsza obrażenia (rodzaj obrażeń wybuchowych), więc zombie dostanie trochę mniej niż 50 × (1 − d / 5).
 - Nazwy funkcji sprawdzone skryptem na typach `@minecraft/server` 2.10.0 (paczka npm w brudnopisie, poza repo).
 - Ikona: `narzedzia/ikona_granatu.py` (kula o średnicy 11 pikseli z obrysem i cieniem, czerwony pasek, połysk, zawleczka, lont z iskrą).
+
+## Strzała wybuchowa (2026-10-19)
+- Łuk z gry przyjmuje jako amunicję tylko `minecraft:arrow` (także strzały z efektami), własny przedmiot nie da się do niego podpiąć. Przybliżenie (zasada 1): strzała wybuchowa `osm:strzala_wybuchowa` (stos 64, `minecraft:allow_off_hand`) działa z drugiej ręki. Skrypt `scripts/strzala.js` przy pojawieniu się `minecraft:arrow` (`entitySpawn`) sprawdza właściciela pocisku: gracz z łukiem w ręku i strzałą wybuchową w drugiej ręce -> strzała dostaje znacznik `osm_wybuchowa`, w trybie przetrwania ubywa 1 strzała wybuchowa, a zwykła wraca do ekwipunku (chyba że łuk ma Nieskończoność - wtedy łuk jej nie zabrał). Łuk bez zwykłej strzały w ekwipunku się nie naciąga.
+- Znacznik (tag) zamiast pamięci skryptu: zostaje na strzale po ponownym wczytaniu świata (inaczej niż rzucony sztylet).
+- Po trafieniu (moba albo bloku): usunięcie strzały i `createExplosion(miejsce, 2.67, { breaksBlocks: true })` bez źródła - rani wszystkich w zasięgu, także strzelającego, jak TNT (TNT z gry ma `power` 4 - odczytane z `entities.brarchive`).
+- Smuga: co 2 ticki cząsteczka `minecraft:redstone_torch_dust_particle` w miejscu każdej strzały ze znacznikiem (we wszystkich 3 wymiarach).
+- Identyfikatory zaklęć i wymiarów z przedrostkiem `minecraft:` (`minecraft:infinity`, `minecraft:overworld`) - sprawdzone w paczce `@minecraft/vanilla-data` 1.26.52.
+- Ikona: `narzedzia/ikona_strzaly_wybuchowej.py`.
