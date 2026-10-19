@@ -81,3 +81,8 @@ Jak używać: po każdej sesji dopisujemy krótki wpis w formacie: data - cel se
 - Cel: błędy z testu granatu i strzały wybuchowej.
 - Zrobiono: analiza logu skryptem (0 błędów; granat ranił lecące granaty; łuk 3,00). Granat: prędkość 1,5 (prosto ok. 13, najdalej ok. 38 - wybór użytkownika), cele tylko z rodziny `mob`, wpis odległości od gracza. Strzała wybuchowa i rzucony sztylet działają.
 - Dalej: krótki test granatu (`testy.md`), potem artefakt (punkt 5).
+
+## 2026-10-19 (lot granatu)
+- Cel: granat nie dolatywał nawet na 10 bloków.
+- Zrobiono: pomiar lotu co tick (gra hamuje × 0,90 i ściąga 0,255 na tick zamiast 0,99 i 0,05); funkcja `prowadzLot` w `wspolne.js` prowadzi tor skryptem; poprawka mnożnika 1,92 dla `applyImpulse`. Ostatnia poprawka niesprawdzona w grze. Sprawdzenia skryptem: składnia 6/6, JSON 18/18, importy 31/31.
+- Dalej: test zasięgu granatu (`testy.md`, blok „Granat - lot prowadzony skryptem”), usunięcie pomiaru `[lot]`, potem `prowadzLot` w sztylecie i procy (`todo.md`), potem artefakt (punkt 5).

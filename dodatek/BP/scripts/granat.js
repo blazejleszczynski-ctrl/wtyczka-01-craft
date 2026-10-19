@@ -1,7 +1,7 @@
 // granat.js - granat: rzut prawym przyciskiem (prosto ok. 13 bloków, najdalej ok. 38), wybuch od razu po trafieniu w moba albo blok.
 // Wybuch nie niszczy bloków i rani tylko moby w promieniu 5 bloków: 50 pkt w środku, liniowo do 0 na krawędzi. Błysk, dym, czerwone iskry, dźwięk pękającego narzędzia.
-import { world, EquipmentSlot, GameMode } from "@minecraft/server";
-import { wystrzel } from "./wspolne.js";
+import { world, system, EquipmentSlot, GameMode } from "@minecraft/server";
+import { wystrzel, prowadzLot } from "./wspolne.js";
 
 // Prędkość rzutu w blokach na tick: rzut prosto ok. 13 bloków, w górę najdalej ok. 38 (symulacja lotu, notes.md; wybór użytkownika po teście)
 const PREDKOSC_RZUTU = 1.5;
@@ -13,8 +13,16 @@ world.afterEvents.itemUse.subscribe((event) => {
   const gracz = event.source;
   if (event.itemStack?.typeId !== "osm:granat") return;
 
-  wystrzel(gracz, "osm:rzucony_granat", PREDKOSC_RZUTU);
+  const granat = wystrzel(gracz, "osm:rzucony_granat", PREDKOSC_RZUTU);
+  // Gra hamuje nasze pociski mocniej niż strzałę - tor prowadzi skrypt (wspolne.js)
+  prowadzLot(granat, gracz, PREDKOSC_RZUTU);
   gracz.dimension.playSound("random.bow", gracz.location);
+  // Pomiar tymczasowy (do usunięcia): położenie granatu co tick - przesunięcie na tick ma maleć × 0,99, grawitacja 0,05
+  const pomiar = system.runInterval(() => {
+    if (!granat.isValid) return system.clearRun(pomiar);
+    const p = granat.location, v = granat.getVelocity();
+    console.warn(`[lot] t=${system.currentTick} x=${p.x.toFixed(3)} y=${p.y.toFixed(3)} z=${p.z.toFixed(3)} vx=${v.x.toFixed(4)} vy=${v.y.toFixed(4)} vz=${v.z.toFixed(4)}`);
+  }, 1);
   if (gracz.getGameMode() === GameMode.Creative) return;
   const ekwipunek = gracz.getComponent("minecraft:equippable");
   const stos = ekwipunek.getEquipment(EquipmentSlot.Mainhand);

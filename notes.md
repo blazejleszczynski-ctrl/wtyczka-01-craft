@@ -95,3 +95,10 @@ Jak używać: po napisaniu i przetestowaniu większej części kodu dopisujemy s
 - Zasięg: przy prędkości 1,06 „20 bloków” było zasięgiem największym (rzut ok. 40° w górę). Rzut prosto z wysokości oczu (1,62) daje w symulacji tylko 9,2 bloku - stąd brak trafień w zombie na 12 i 20 blokach. Stosunek „prosto / najdalej” jest stały (ok. 1/3, zależy od wysokości oczu, nie od grawitacji), więc nie da się mieć jednocześnie 14 prosto i 30 najdalej. Wybór użytkownika „pośrodku”: prędkość 1,5 - prosto 13,0, najdalej 38,0 bloku. Wpis `od_gracza=` w logu sprawdza to w grze.
 - Granat ranił inne lecące granaty (25 wpisów `cel=osm:rzucony_granat`): pociski też mają życie. Poprawka: wyszukiwanie tylko rodziny `mob` (sprawdzone skryptem na plikach gry: 59 postaci z życiem ma tę rodzinę, bez niej: kryształ Endu i 4 rodzaje ryb).
 - Pomiar łuku: pełny naciąg 3,00 i 2,96 - założenie „łuk = 3,0” do zasięgu procy potwierdzone.
+
+## Lot pocisków - pomiar i prowadzenie skryptem (2026-10-19)
+- Granat z prędkością 1,5 upadał 5-8,4 bloku od gracza (41 rzutów). Pomiar położenia i prędkości co tick (`[lot]` w logu, 3 rzuty, 22 pary ticków, odchyłka dopasowania 0,0001): prędkość pozioma × 0,9008 na tick, pionowa × 0,9702 − 0,255, potem przesunięcie o nową prędkość. Model w symulacji zakładał 0,99 i 0,05. Śnieżka z gry ma taką samą budowę definicji (`physics` + `projectile` z `gravity`) - przyczyna silnego hamowania nieznana.
+- Poprawka: `prowadzLot` w `wspolne.js` co tick czyści prędkość i nadaje impuls odwrotny do modelu gry, tak żeby przesunięcie odpowiadało modelowi „opór 0,99, grawitacja 0,05”. Używa go na razie tylko granat.
+- Pierwsza wersja: kształt toru dobry (opór 0,99 - mediana z 229 ticków), ale tor 1,93 raza za duży (grawitacja 0,096, krok 3,1-3,4 zamiast 1,5, rzuty do ok. 75 bloków). `applyImpulse` mnoży prędkość tak samo jak `shoot()` (1,92). Poprawka: impuls dzielony przez `MNOZNIK_SHOOT`. Niesprawdzone w grze.
+- Granat z prowadzonym lotem trafiał zombie z 13 bloków, obrażenia zgodne z odległością (0,35 bloku - 46,5 pkt, 3,5 bloku - 15 pkt), 0 błędów w logu.
+- Pomiar `[lot]` w `granat.js` jest tymczasowy - usunąć po potwierdzeniu zasięgu.

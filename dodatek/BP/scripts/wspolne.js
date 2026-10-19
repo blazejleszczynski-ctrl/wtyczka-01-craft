@@ -1,4 +1,4 @@
-// wspolne.js - funkcje wspólne dla przedmiotów z efektami: czas przytrzymania prawego przycisku, zużycie wytrzymałości, wystrzał pocisku z oczu gracza.
+// wspolne.js - funkcje wspólne dla przedmiotów z efektami: czas przytrzymania prawego przycisku, zużycie wytrzymałości, wystrzał pocisku z oczu gracza, prowadzenie toru pocisku skryptem.
 import { world, system, EquipmentSlot } from "@minecraft/server";
 
 // Tick, w którym gracz zaczął używać przedmiotu (id gracza -> tick)
@@ -42,4 +42,27 @@ export function wystrzel(gracz, typPocisku, predkoscDocelowa) {
   lot.owner = gracz;
   lot.shoot({ x: kierunek.x * predkosc, y: kierunek.y * predkosc, z: kierunek.z * predkosc });
   return pocisk;
+}
+
+// Lot naszych pocisków w grze (pomiar granatu 2026-10-19, 22 pary ticków, odchyłka 0,0001): co tick
+// prędkość pozioma × 0,9008, pionowa × 0,9702 − 0,255, potem przesunięcie o nową prędkość. Docelowo lot jak strzała: opór 0,99, grawitacja 0,05.
+const GRA_OPOR_POZIOM = 0.9008;
+const GRA_OPOR_PION = 0.9702;
+const GRA_GRAWITACJA = 0.255;
+const OPOR = 0.99;
+const GRAWITACJA = 0.05;
+
+// Prowadzi pocisk co tick po torze z oporem OPOR i grawitacją GRAWITACJA, zaczynając od prędkości `predkosc` w kierunku patrzenia gracza.
+// Ustawia prędkość odwrotną do modelu gry, żeby po jej hamowaniu i grawitacji pocisk przesunął się o prędkość z naszego modelu.
+export function prowadzLot(pocisk, gracz, predkosc) {
+  const k = gracz.getViewDirection();
+  let v = { x: k.x * predkosc, y: k.y * predkosc, z: k.z * predkosc };
+  const id = system.runInterval(() => {
+    if (!pocisk.isValid) return system.clearRun(id);
+    pocisk.clearVelocity();
+    // applyImpulse też mnoży prędkość ok. 1,92 raza jak shoot() (pomiar 2026-10-19: tor 1,93 raza za duży), stąd dzielenie
+    const m = MNOZNIK_SHOOT;
+    pocisk.applyImpulse({ x: v.x / GRA_OPOR_POZIOM / m, y: (v.y + GRA_GRAWITACJA) / GRA_OPOR_PION / m, z: v.z / GRA_OPOR_POZIOM / m });
+    v = { x: v.x * OPOR, y: v.y * OPOR - GRAWITACJA, z: v.z * OPOR };
+  }, 1);
 }

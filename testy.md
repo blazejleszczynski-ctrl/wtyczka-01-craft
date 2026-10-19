@@ -76,3 +76,9 @@ Strzała wybuchowa: działa, rani także strzelającego, da się włożyć do dr
 3. Zombie 12 bloków dalej: rzuć prosto albo trochę w górę. Oczekiwane: trafiasz, zombie ginie. ->
 4. Rzuć kilka granatów szybko jeden po drugim w golema. Oczekiwane: w logu żadnej linii `cel=osm:rzucony_granat`. ->
 5. Zamknij świat. Oczekiwane: 0 błędów w logu (sprawdza agent). ->
+
+## Granat - lot prowadzony skryptem (2026-10-19)
+1. Na płaskim terenie rzuć granat prosto przed siebie. Oczekiwane: `[granat] trafienie=blok od_gracza=` ok. 13. ->
+2. Rzuć ok. 45° w górę. Oczekiwane: `od_gracza=` ok. 35-38. ->
+3. Rzuć w zombie ok. 12 bloków dalej. Oczekiwane: trafiasz, zombie ginie. ->
+4. Zamknij świat. Oczekiwane: 0 błędów w logu (sprawdza agent). ->
