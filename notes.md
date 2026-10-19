@@ -90,3 +90,8 @@ Jak używać: po napisaniu i przetestowaniu większej części kodu dopisujemy s
 - Smuga: co 2 ticki cząsteczka `minecraft:redstone_torch_dust_particle` w miejscu każdej strzały ze znacznikiem (we wszystkich 3 wymiarach).
 - Identyfikatory zaklęć i wymiarów z przedrostkiem `minecraft:` (`minecraft:infinity`, `minecraft:overworld`) - sprawdzone w paczce `@minecraft/vanilla-data` 1.26.52.
 - Ikona: `narzedzia/ikona_strzaly_wybuchowej.py`.
+
+## Poprawki po teście 2 - granat (2026-10-19)
+- Zasięg: przy prędkości 1,06 „20 bloków” było zasięgiem największym (rzut ok. 40° w górę). Rzut prosto z wysokości oczu (1,62) daje w symulacji tylko 9,2 bloku - stąd brak trafień w zombie na 12 i 20 blokach. Stosunek „prosto / najdalej” jest stały (ok. 1/3, zależy od wysokości oczu, nie od grawitacji), więc nie da się mieć jednocześnie 14 prosto i 30 najdalej. Wybór użytkownika „pośrodku”: prędkość 1,5 - prosto 13,0, najdalej 38,0 bloku. Wpis `od_gracza=` w logu sprawdza to w grze.
+- Granat ranił inne lecące granaty (25 wpisów `cel=osm:rzucony_granat`): pociski też mają życie. Poprawka: wyszukiwanie tylko rodziny `mob` (sprawdzone skryptem na plikach gry: 59 postaci z życiem ma tę rodzinę, bez niej: kryształ Endu i 4 rodzaje ryb).
+- Pomiar łuku: pełny naciąg 3,00 i 2,96 - założenie „łuk = 3,0” do zasięgu procy potwierdzone.

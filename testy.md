@@ -66,3 +66,13 @@ Wynik testu 1 (z rozmowy i logu): cios sztyletem od tyłu rozpoznawany dobrze, a
 9. Tylko strzały wybuchowe (0 zwykłych strzał w ekwipunku). Oczekiwane: łuk się nie naciąga (znane ograniczenie). ->
 10. Tryb kreatywny, strzały wybuchowe w drugiej ręce: strzał. Oczekiwane: wybuch, liczba strzał wybuchowych bez zmian. ->
 11. Zamknij świat. Oczekiwane: 0 błędów w logu (sprawdza agent). ->
+
+## Wynik testu 2 (2026-10-19, z rozmowy i logu)
+Strzała wybuchowa: działa, rani także strzelającego, da się włożyć do drugiej ręki. Rzucony sztylet: działa. Granat: rzucony prosto nie dolatuje do zombie na 12 i 20 blokach. Log: 0 błędów, granat ranił inne lecące granaty (25 wpisów), łuk przy pełnym naciągu 3,00 i 2,96.
+
+## Granat - poprawki po teście 2 (2026-10-19)
+1. Rzuć granatem prosto (bez celowania w górę) w ziemię na płaskim terenie. Oczekiwane: w logu `[granat] trafienie=blok od_gracza=` ok. 13. ->
+2. Rzuć ok. 30-45° w górę. Oczekiwane: `od_gracza=` ok. 35-38. ->
+3. Zombie 12 bloków dalej: rzuć prosto albo trochę w górę. Oczekiwane: trafiasz, zombie ginie. ->
+4. Rzuć kilka granatów szybko jeden po drugim w golema. Oczekiwane: w logu żadnej linii `cel=osm:rzucony_granat`. ->
+5. Zamknij świat. Oczekiwane: 0 błędów w logu (sprawdza agent). ->

@@ -53,10 +53,10 @@ Jak używać:
 . . 6 . .
 . . 2 . .
 ```
-- efekt: rzucany granat wybucha od razu po trafieniu (w moba, blok lub ziemię), leci maksymalnie 20 bloków. Rani tylko moby, nie niszczy bloków. Moby w promieniu 5 bloków od wybuchu tracą życie, im bliżej, tym więcej. Wygląd wybuchu: błysk, trochę dymu i czerwone cząsteczki. Dźwięk: jak pękające narzędzie (dźwięk zniszczenia narzędzia w grze).
-- liczby: zasięg rzutu 20 bloków, promień wybuchu 5 bloków, maksymalne obrażenia 25 serduszek (50 pkt) dla moba stojącego na granacie; spadek obrażeń z odległością: liniowo do 0 na krawędzi promienia (potwierdzone 2026-10-15: 0 bloków 50 pkt, 1 blok 40 pkt, 2,5 bloku 25 pkt, 4 bloki 10 pkt, 5 bloków 0)
+- efekt: rzucany granat wybucha od razu po trafieniu (w moba, blok lub ziemię), rzucony prosto leci ok. 13 bloków, w górę najdalej ok. 38. Rani tylko moby, nie niszczy bloków. Moby w promieniu 5 bloków od wybuchu tracą życie, im bliżej, tym więcej. Wygląd wybuchu: błysk, trochę dymu i czerwone cząsteczki. Dźwięk: jak pękające narzędzie (dźwięk zniszczenia narzędzia w grze).
+- liczby: zasięg rzutu: prosto ok. 13 bloków, najdalej ok. 38 (zmienione 2026-10-19 po teście: wcześniej 20 bloków najdalej, czyli prosto tylko ok. 9), promień wybuchu 5 bloków, maksymalne obrażenia 25 serduszek (50 pkt) dla moba stojącego na granacie; spadek obrażeń z odległością: liniowo do 0 na krawędzi promienia (potwierdzone 2026-10-15: 0 bloków 50 pkt, 1 blok 40 pkt, 2,5 bloku 25 pkt, 4 bloki 10 pkt, 5 bloków 0)
 - wygląd: okrągła ciemnoszara metalowa kula, trochę większa niż śnieżka. Na górze mała zawleczka z jasnego żelaza i czerwony lont z iskrą, na boku czerwony pasek, w lewym górnym rogu jasny połysk. Rysunek 16×16 - zrobiony (`narzedzia/ikona_granatu.py`).
-- uwaga: rzut, wybuch i obrażenia robi skrypt (`scripts/granat.js`). Odległość liczona do najbliższego punktu ciała moba (od stóp do głowy), więc trafienie wprost to 50 pkt. Pancerz moba zmniejsza obrażenia. Granaty układają się w stos po 16 (jak śnieżki).
+- uwaga: rzut, wybuch i obrażenia robi skrypt (`scripts/granat.js`). Odległość liczona do najbliższego punktu ciała moba (od stóp do głowy), więc trafienie wprost to 50 pkt. Pancerz moba zmniejsza obrażenia. Granaty układają się w stos po 16 (jak śnieżki). Rani tylko postacie z rodziny „mob” - ryby i kryształ Endu pomija.
 - status: w grze
 
 ## Proca

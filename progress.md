@@ -76,3 +76,8 @@ Jak używać: po każdej sesji dopisujemy krótki wpis w formacie: data - cel se
 - Cel: strzała wybuchowa.
 - Zrobiono: przedmiot `osm:strzala_wybuchowa` (przepis 8 prochu + 1 strzała = 2), skrypt `strzala.js` (łuk strzela wybuchową, gdy leży w drugiej ręce; wybuch 2,67 po trafieniu, niszczy bloki, rani wszystkich; smuga czerwonych iskier), ikona `narzedzia/ikona_strzaly_wybuchowej.py`. Sprawdzenia skryptem: składnia 6/6, JSON 18/18, importy 29/29, przepisy 17/17. Przybliżenie: do naciągnięcia łuku potrzebna 1 zwykła strzała.
 - Dalej: test użytkownika (granat, strzała wybuchowa, zaległe próby poprawek 1 - kamień z procy), potem artefakt.
+
+## 2026-10-19 (poprawki po teście 2)
+- Cel: błędy z testu granatu i strzały wybuchowej.
+- Zrobiono: analiza logu skryptem (0 błędów; granat ranił lecące granaty; łuk 3,00). Granat: prędkość 1,5 (prosto ok. 13, najdalej ok. 38 - wybór użytkownika), cele tylko z rodziny `mob`, wpis odległości od gracza. Strzała wybuchowa i rzucony sztylet działają.
+- Dalej: krótki test granatu (`testy.md`), potem artefakt (punkt 5).

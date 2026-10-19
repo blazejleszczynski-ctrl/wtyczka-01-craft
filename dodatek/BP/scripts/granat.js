@@ -1,14 +1,12 @@
-// granat.js - granat: rzut prawym przyciskiem (zasięg 20 bloków), wybuch od razu po trafieniu w moba albo blok.
+// granat.js - granat: rzut prawym przyciskiem (prosto ok. 13 bloków, najdalej ok. 38), wybuch od razu po trafieniu w moba albo blok.
 // Wybuch nie niszczy bloków i rani tylko moby w promieniu 5 bloków: 50 pkt w środku, liniowo do 0 na krawędzi. Błysk, dym, czerwone iskry, dźwięk pękającego narzędzia.
 import { world, EquipmentSlot, GameMode } from "@minecraft/server";
 import { wystrzel } from "./wspolne.js";
 
-// Prędkość rzutu w blokach na tick: zasięg 20 bloków (ta sama symulacja lotu co rzucony sztylet, notes.md)
-const PREDKOSC_RZUTU = 1.06;
+// Prędkość rzutu w blokach na tick: rzut prosto ok. 13 bloków, w górę najdalej ok. 38 (symulacja lotu, notes.md; wybór użytkownika po teście)
+const PREDKOSC_RZUTU = 1.5;
 const PROMIEN = 5;
 const OBRAZENIA_MAX = 50;
-// Postacie, które nie są mobami, a mają życie (gracz, leżące przedmioty, kulki doświadczenia)
-const NIE_MOBY = ["minecraft:player", "minecraft:item", "minecraft:xp_orb"];
 
 // Gracz użył granatu: rzut; w trybie przetrwania ubywa 1 granat ze stosu w ręku
 world.afterEvents.itemUse.subscribe((event) => {
@@ -50,7 +48,9 @@ function wybuch(event) {
   const rzucajacy = granat.getComponent("minecraft:projectile").owner;
   const punkt = event.location;
   const wymiar = event.dimension;
-  console.warn(`[granat] trafienie=${event.getEntityHit?.().entity?.typeId ?? "blok"}`);
+  // Odległość w poziomie od rzucającego (do sprawdzenia zasięgu rzutu)
+  const odGracza = rzucajacy?.isValid ? Math.hypot(punkt.x - rzucajacy.location.x, punkt.z - rzucajacy.location.z).toFixed(1) : "?";
+  console.warn(`[granat] trafienie=${event.getEntityHit?.().entity?.typeId ?? "blok"} od_gracza=${odGracza}`);
   granat.remove();
 
   czasteczki(wymiar, "minecraft:large_explosion", punkt, 1, 0);
@@ -61,7 +61,8 @@ function wybuch(event) {
   // Szukamy z zapasem 2 bloków, bo wyszukiwanie mierzy do stóp moba, a my do najbliższego punktu ciała
   // Obrażenia przypisane rzucającemu (np. łup z moba), o ile nadal jest w świecie
   const zrodlo = rzucajacy?.isValid ? { cause: "entityExplosion", damagingEntity: rzucajacy } : { cause: "entityExplosion" };
-  const moby = wymiar.getEntities({ location: punkt, maxDistance: PROMIEN + 2, excludeTypes: NIE_MOBY });
+  // Tylko rodzina "mob" (59 mobów z gry; poza nią m.in. ryby, gracz, pociski, leżące przedmioty)
+  const moby = wymiar.getEntities({ location: punkt, maxDistance: PROMIEN + 2, families: ["mob"], excludeTypes: ["minecraft:player"] });
   for (const mob of moby) {
     if (!mob.getComponent("minecraft:health")) continue;
     const d = odleglosc(punkt, mob);
