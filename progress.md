@@ -86,3 +86,8 @@ Jak używać: po każdej sesji dopisujemy krótki wpis w formacie: data - cel se
 - Cel: granat nie dolatywał nawet na 10 bloków.
 - Zrobiono: pomiar lotu co tick (gra hamuje × 0,90 i ściąga 0,255 na tick zamiast 0,99 i 0,05); funkcja `prowadzLot` w `wspolne.js` prowadzi tor skryptem; poprawka mnożnika 1,92 dla `applyImpulse`. Ostatnia poprawka niesprawdzona w grze. Sprawdzenia skryptem: składnia 6/6, JSON 18/18, importy 31/31.
 - Dalej: test zasięgu granatu (`testy.md`, blok „Granat - lot prowadzony skryptem”), usunięcie pomiaru `[lot]`, potem `prowadzLot` w sztylecie i procy (`todo.md`), potem artefakt (punkt 5).
+
+## 2026-10-19 (test 3: granat i strzała wybuchowa)
+- Cel: błędy z testu - granat leci za daleko, strzała wybuchowa nie wybucha w mobie.
+- Zrobiono: analiza logu skryptem. Granat: kształt lotu zgodny z modelem (0,99 i 0,05), ale prędkość startowa za duża (×1,12 prosto, ×1,43 w górę; prosto 20 bloków zamiast 13, w górę 50 zamiast 38) - przyczyna nieznana. Strzała: znika przy trafieniu moba - rozpoznawanie po numerze (3/3 w grze), sprawdzenie `isValid` przy wystrzale.
+- Dalej: kusza ze strzałą wybuchową (Wielostrzał - 3 wybuchowe), potem pomiar kierunku rzutu granatu.

@@ -5,10 +5,13 @@ import { world, system, ItemStack, EquipmentSlot, GameMode } from "@minecraft/se
 const SILA_WYBUCHU = 2.67;
 // Znacznik (tag) strzały wybuchowej; zostaje na strzale także po ponownym wczytaniu świata
 const ZNACZNIK = "osm_wybuchowa";
+// Numery (id) wystrzelonych strzał wybuchowych - strzała z gry znika przy trafieniu moba, zanim skrypt odczyta jej znacznik, a numer zostaje
+const wybuchowe = new Set();
 
 // Wystrzelona strzała: jeśli strzelał gracz z łuku, a w drugiej ręce ma strzałę wybuchową - oznacz strzałę i rozlicz amunicję
 world.afterEvents.entitySpawn.subscribe(({ entity }) => {
-  if (entity.typeId !== "minecraft:arrow") return;
+  // Strzała mogła już zniknąć (np. strzał z bardzo bliska) - wtedy nie da się jej odczytać
+  if (!entity.isValid || entity.typeId !== "minecraft:arrow") return;
   const gracz = entity.getComponent("minecraft:projectile")?.owner;
   if (gracz?.typeId !== "minecraft:player") return;
   const ekwipunek = gracz.getComponent("minecraft:equippable");
@@ -17,6 +20,7 @@ world.afterEvents.entitySpawn.subscribe(({ entity }) => {
   if (luk?.typeId !== "minecraft:bow" || druga?.typeId !== "osm:strzala_wybuchowa") return;
 
   entity.addTag(ZNACZNIK);
+  wybuchowe.add(entity.id);
   console.warn("[strzala] wystrzal wybuchowej");
   if (gracz.getGameMode() === GameMode.Creative) return;
   if (druga.amount > 1) {
@@ -44,9 +48,10 @@ system.runInterval(() => {
 // Strzała wybuchowa trafiła moba albo blok: wybuch w miejscu trafienia (bez źródła, więc rani też strzelającego, jak TNT)
 function wybuch(event) {
   const strzala = event.projectile;
-  if (!strzala.isValid || !strzala.hasTag(ZNACZNIK)) return;
-  console.warn(`[strzala] wybuch trafienie=${event.getEntityHit?.().entity?.typeId ?? "blok"}`);
-  strzala.remove();
+  // Znacznik sprawdzamy tylko, gdy strzała jeszcze istnieje (np. strzała wbita przed ponownym wczytaniem świata)
+  if (!wybuchowe.delete(strzala.id) && !(strzala.isValid && strzala.hasTag(ZNACZNIK))) return;
+  console.warn(`[strzala] wybuch trafienie=${event.getEntityHit?.().entity?.typeId ?? "blok"} istnieje=${strzala.isValid ? "tak" : "nie"}`);
+  if (strzala.isValid) strzala.remove();
   event.dimension.createExplosion(event.location, SILA_WYBUCHU, { breaksBlocks: true });
 }
 world.afterEvents.projectileHitEntity.subscribe(wybuch);

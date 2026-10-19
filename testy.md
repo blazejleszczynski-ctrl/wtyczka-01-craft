@@ -82,3 +82,7 @@ Strzała wybuchowa: działa, rani także strzelającego, da się włożyć do dr
 2. Rzuć ok. 45° w górę. Oczekiwane: `od_gracza=` ok. 35-38. ->
 3. Rzuć w zombie ok. 12 bloków dalej. Oczekiwane: trafiasz, zombie ginie. ->
 4. Zamknij świat. Oczekiwane: 0 błędów w logu (sprawdza agent). ->
+
+## Strzała wybuchowa - trafienie w moba (2026-10-19)
+Wynik: 3/3 trafienia w moba (żelazny golem ×2, żółw) z wybuchem, `istnieje=nie`. Uwaga: od 19:35 do 19:58 gra działała na starym kodzie (świat nie był ponownie wczytany).
+1. Strzelaj z bliska (1-2 bloki) w ścianę i w moba kilka razy. Oczekiwane: 0 błędów `InvalidEntityError` w logu (sprawdza agent). ->

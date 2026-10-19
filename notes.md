@@ -102,3 +102,8 @@ Jak używać: po napisaniu i przetestowaniu większej części kodu dopisujemy s
 - Pierwsza wersja: kształt toru dobry (opór 0,99 - mediana z 229 ticków), ale tor 1,93 raza za duży (grawitacja 0,096, krok 3,1-3,4 zamiast 1,5, rzuty do ok. 75 bloków). `applyImpulse` mnoży prędkość tak samo jak `shoot()` (1,92). Poprawka: impuls dzielony przez `MNOZNIK_SHOOT`. Niesprawdzone w grze.
 - Granat z prowadzonym lotem trafiał zombie z 13 bloków, obrażenia zgodne z odległością (0,35 bloku - 46,5 pkt, 3,5 bloku - 15 pkt), 0 błędów w logu.
 - Pomiar `[lot]` w `granat.js` jest tymczasowy - usunąć po potwierdzeniu zasięgu.
+
+## Strzała wybuchowa - trafienie w moba (2026-10-19)
+- Objaw: wybuch tylko po trafieniu w blok (log: 35 wystrzałów, 22 trafienia w blok, 0 w moba). Przyczyna: strzała z gry znika w chwili trafienia moba, więc w `projectileHitEntity` jest już nieistniejąca i nie da się odczytać jej znacznika.
+- Poprawka: numery (id) strzał wybuchowych w zbiorze `wybuchowe` przy wystrzale - numer da się odczytać także z nieistniejącej strzały. Znacznik zostaje dla smugi i dla strzał wbitych przed ponownym wczytaniem świata. Potwierdzone w grze: 3/3 trafienia w moba z wybuchem, wszystkie z `istnieje=nie`.
+- `entitySpawn` dostał strzałę już nieistniejącą (2 błędy `InvalidEntityError` w linii 12) - sprawdzenie `isValid` na początku.
