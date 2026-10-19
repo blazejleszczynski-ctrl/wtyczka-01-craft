@@ -1,0 +1,18 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:item": {
+    "description": {
+      "identifier": "osm:granat",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:icon": "osm_granat",
+      "minecraft:display_name": {
+        "value": "item.osm.granat.name"
+      },
+      "minecraft:max_stack_size": 16
+    }
+  }
+}

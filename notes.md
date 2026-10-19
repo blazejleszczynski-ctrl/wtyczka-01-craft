@@ -68,3 +68,17 @@ Jak używać: po napisaniu i przetestowaniu większej części kodu dopisujemy s
 ## Poprawki po teście 1 - sztylet (2026-10-15)
 - Tył rozpoznawany dobrze (potwierdzone w grze), ale golem tracił 12 na cios od tyłu (9/9 ciosów: 88, 76 … 4, 0). `applyDamage` działa mimo chwilowej nietykalności celu - założenie „gra zadaje tylko różnicę” było błędne. Poprawka: dodatkowo `applyDamage(zadane obrażenia)`, czyli 4 + 4 = 8.
 - Wpis `[sztylet] trafienie=mob/blok` przy każdym trafieniu rzuconego sztyletu.
+
+## Wyniki testu po poprawkach 1 (log 2026-10-15, po 17:57)
+- Prędkość kamienia z procy po dzieleniu przez 1,92: 16/16 pomiarów od 2,31 do 2,35 (cel 2,34).
+- Sztylet od tyłu: −8 na cios (szkielet 20 → 12 → 4 → 0, zombie −7,87 przez naturalny pancerz).
+- Kamień trafia moby (7 wpisów `[proca] trafienie=minecraft:zombie`), ale 0 wpisów o zranieniu. Pola `impact_damage` są takie jak w strzale gracza z gry (`minecraft:player_arrow`: `damage` 1, `power_multiplier` 0,97). Przyczyna nadal nieznana (`todo.md`). Rzucony sztylet trafił zombie 3 razy - log nie mówi, czy zranił.
+- Łuk: nadal 0 pomiarów `[pomiar] minecraft:arrow`.
+
+## Granat (2026-10-19)
+- Przedmiot `osm:granat` bez komponentów użycia (stos 16 jak śnieżka). Rzut robi skrypt `scripts/granat.js` przy zdarzeniu `itemUse`: pocisk `osm:rzucony_granat` z prędkością 1,06 (zasięg 20 bloków, ta sama symulacja i grawitacja 0,05 co rzucony sztylet). W trybie przetrwania ubywa 1 granat ze stosu.
+- Pocisk nie ma `impact_damage` - całe obrażenia liczy skrypt. Przy trafieniu (moba albo bloku) skrypt usuwa granat i robi wybuch: `getEntities` w promieniu 7 bloków (zapas, bo wyszukiwanie mierzy do stóp), potem odległość do najbliższego punktu ciała (pionowy odcinek od stóp do głowy). Obrażenia `50 × (1 − d / 5)` przez `applyDamage` z rodzajem `entityExplosion`, przypisane rzucającemu. Pomijane: gracze, leżące przedmioty, kulki doświadczenia i postacie bez życia. Bloki nietknięte, bo nie ma wybuchu z gry.
+- Wygląd wybuchu z cząsteczek gry (nazwy odczytane z `particles.brarchive`): błysk `minecraft:large_explosion` ×1, dym `minecraft:basic_smoke_particle` ×10, czerwone iskry `minecraft:redstone_torch_dust_particle` ×15. Dźwięk `random.break` (pęknięcie narzędzia).
+- Przybliżenie (zasada 1): pancerz moba zmniejsza obrażenia (rodzaj obrażeń wybuchowych), więc zombie dostanie trochę mniej niż 50 × (1 − d / 5).
+- Nazwy funkcji sprawdzone skryptem na typach `@minecraft/server` 2.10.0 (paczka npm w brudnopisie, poza repo).
+- Ikona: `narzedzia/ikona_granatu.py` (kula o średnicy 11 pikseli z obrysem i cieniem, czerwony pasek, połysk, zawleczka, lont z iskrą).

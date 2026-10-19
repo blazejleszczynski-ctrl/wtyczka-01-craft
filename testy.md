@@ -42,3 +42,14 @@ Wynik testu 1 (z rozmowy i logu): cios sztyletem od tyłu rozpoznawany dobrze, a
 7. Rzut sztyletem w moba. Oczekiwane: mob traci życie, sztylet spada obok; w logu `[sztylet] trafienie=minecraft:...`. ->
 8. Ikony procy i sztyletu w ekwipunku wyglądają jak w opisie z `przepisy.md`. ->
 9. Zamknij świat. Oczekiwane: 0 błędów w logu (sprawdza agent). ->
+
+## Granat (2026-10-19)
+1. Włóż do stołu 4 żelaza + 4 proch + 1 kulę ognia, uderz stół. Oczekiwane: w skrzyni 4 granaty z ikoną ciemnej kuli z czerwonym paskiem i lontem. ->
+2. Włóż 4 żelaza + 4 proch (bez kuli ognia), uderz stół. Oczekiwane: nic się nie zmienia. ->
+3. Tryb przetrwania, granaty w ręku, kliknij prawym w ziemię kilka bloków dalej. Oczekiwane: leci szara kula, przy uderzeniu błysk, trochę dymu, czerwone iskry, dźwięk pękającego narzędzia; ubywa 1 granat; blok cały. ->
+4. Rzuć granatem prosto w zombie z 5 bloków. Oczekiwane: zombie ginie (50 pkt > 20 życia); w logu `[granat] trafienie=minecraft:zombie` i `[granat] cel=minecraft:zombie odleglosc=0...`. Napisz, czy granat wybuchł na zombie, czy przeleciał przez niego. ->
+5. Postaw 3 żelazne golemy (`/summon iron_golem`) w odległości ok. 1, 3 i 6 bloków od miejsca, gdzie rzucisz granat w ziemię. Oczekiwane: w logu golem 1 bloku ok. 40 pkt, 3 bloków ok. 20 pkt, 6 bloków brak wpisu. ->
+6. Rzuć granatem pod sobą (pod nogi). Oczekiwane: gracz nie traci życia. ->
+7. Rzuć granatem pod kątem ok. 45° w górę na płaskim terenie. Oczekiwane: wybuch ok. 20 bloków od gracza. ->
+8. Tryb kreatywny: rzut. Oczekiwane: granat leci i wybucha, liczba granatów w ręku się nie zmienia. ->
+9. Zamknij świat. Oczekiwane: 0 błędów w logu (sprawdza agent). ->

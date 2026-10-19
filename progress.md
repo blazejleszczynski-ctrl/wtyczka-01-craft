@@ -66,3 +66,8 @@ Jak używać: po każdej sesji dopisujemy krótki wpis w formacie: data - cel se
 - Cel: błędy z testu procy i sztyletu.
 - Zrobiono: analiza logu skryptem (0 błędów; 62 strzały z procy, 0 zranień; współczynnik shoot 1,92 z 50 strzałów; golem -12 na cios sztyletu od tyłu); prędkość pocisków dzielona przez 1,92; wpisy o trafieniach kamienia i sztyletu; cios od tyłu 4 + 4. Nowe próby w `testy.md`.
 - Dalej: test użytkownika, potem granat i strzała wybuchowa.
+
+## 2026-10-19 (praca samodzielna wg `zlecenie.md`, punkt 3)
+- Cel: granat. Przed startem: analiza logu po poprawkach 1 (prędkość kamienia 16/16 dobrze, sztylet od tyłu −8 dobrze, kamień trafia moby, ale nie rani - wątek w `todo.md`).
+- Zrobiono: przedmiot `osm:granat` (przepis 4 żelaza + 4 proch + 1 kula ognia = 4 granaty), skrypt `granat.js` (rzut na 20 bloków, wybuch po trafieniu, obrażenia 50 pkt liniowo do 0 w promieniu 5 bloków, tylko moby, bez niszczenia bloków, błysk, dym, czerwone iskry, dźwięk pęknięcia), pocisk `osm:rzucony_granat`, ikona `narzedzia/ikona_granatu.py`. Sprawdzenia skryptem: składnia 5/5, JSON 17/17, importy 24/24, przepisy 13/13.
+- Dalej: strzała wybuchowa (punkt 4), potem test użytkownika.

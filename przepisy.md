@@ -55,9 +55,9 @@ Jak używać:
 ```
 - efekt: rzucany granat wybucha od razu po trafieniu (w moba, blok lub ziemię), leci maksymalnie 20 bloków. Rani tylko moby, nie niszczy bloków. Moby w promieniu 5 bloków od wybuchu tracą życie, im bliżej, tym więcej. Wygląd wybuchu: błysk, trochę dymu i czerwone cząsteczki. Dźwięk: jak pękające narzędzie (dźwięk zniszczenia narzędzia w grze).
 - liczby: zasięg rzutu 20 bloków, promień wybuchu 5 bloków, maksymalne obrażenia 25 serduszek (50 pkt) dla moba stojącego na granacie; spadek obrażeń z odległością: liniowo do 0 na krawędzi promienia (potwierdzone 2026-10-15: 0 bloków 50 pkt, 1 blok 40 pkt, 2,5 bloku 25 pkt, 4 bloki 10 pkt, 5 bloków 0)
-- wygląd: okrągła ciemnoszara metalowa kula, trochę większa niż śnieżka. Na górze mała zawleczka z jasnego żelaza i czerwony lont z iskrą, na boku czerwony pasek, w lewym górnym rogu jasny połysk. Rysunek 16×16 - do zrobienia.
-- uwaga: rzut, wybuch bez niszczenia bloków i obrażenia zależne od odległości wymagają skryptu JavaScript, do sprawdzenia w dokumentacji.
-- status: pomysł
+- wygląd: okrągła ciemnoszara metalowa kula, trochę większa niż śnieżka. Na górze mała zawleczka z jasnego żelaza i czerwony lont z iskrą, na boku czerwony pasek, w lewym górnym rogu jasny połysk. Rysunek 16×16 - zrobiony (`narzedzia/ikona_granatu.py`).
+- uwaga: rzut, wybuch i obrażenia robi skrypt (`scripts/granat.js`). Odległość liczona do najbliższego punktu ciała moba (od stóp do głowy), więc trafienie wprost to 50 pkt. Pancerz moba zmniejsza obrażenia. Granaty układają się w stos po 16 (jak śnieżki).
+- status: w grze
 
 ## Proca
 - id: osm:proca

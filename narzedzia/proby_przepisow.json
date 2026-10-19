@@ -6,5 +6,10 @@
  [{"minecraft:stick":5,"minecraft:string":1}, null],
  [{"minecraft:stick":4,"minecraft:string":2}, null],
  [{"minecraft:stick":4,"minecraft:string":1,"minecraft:iron_ingot":1}, null],
- [{"minecraft:stick":4}, null]
+ [{"minecraft:stick":4}, null],
+ [{"minecraft:iron_ingot":4,"minecraft:gunpowder":4,"minecraft:fire_charge":1}, "osm:granat"],
+ [{"minecraft:iron_ingot":3,"minecraft:gunpowder":4,"minecraft:fire_charge":1}, null],
+ [{"minecraft:iron_ingot":4,"minecraft:gunpowder":5,"minecraft:fire_charge":1}, null],
+ [{"minecraft:iron_ingot":4,"minecraft:gunpowder":4}, null],
+ [{"minecraft:iron_ingot":4,"minecraft:gunpowder":4,"minecraft:fire_charge":1,"minecraft:stick":1}, null]
 ]

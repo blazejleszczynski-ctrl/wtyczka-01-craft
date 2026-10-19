@@ -10,6 +10,9 @@
     },
     "osm_proca": {
       "textures": "textures/items/proca"
+    },
+    "osm_granat": {
+      "textures": "textures/items/granat"
     }
   }
 }
