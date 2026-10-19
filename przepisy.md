@@ -128,7 +128,7 @@ Jak używać:
 - efekt: strzała, która po trafieniu wybucha z siłą o jedną trzecią niższą niż TNT. Leci tak samo jak zwykła strzała (strzela się z łuku). Wybuch niszczy bloki i rani wszystkich (moby, graczy, także strzelającego), tak samo jak TNT.
 - liczby: siła wybuchu ok. 2,67 (TNT ma 4, czyli 2/3 tej wartości); obrażenia i promień wynikają z siły wybuchu
 - wygląd: zwykła strzała ukośnie (drewniany trzonek, pióra z tyłu), ale grot bardziej szary, a na trzonku kilka szarych punkcików (proch). Zamiast zwykłego grotu mała ciemnoszara kulka z prochu z czerwonym lontem i jasnożółtą iskrą. Rysunek 16×16 - zrobiony (`narzedzia/ikona_strzaly_wybuchowej.py`). Opcjonalnie (skrypt): w locie smuga czerwonych iskier.
-- uwaga: wybuch i smugę iskier robi skrypt (`scripts/strzala.js`). Różnica: łuk z gry strzela tylko zwykłymi strzałami, więc strzała wybuchowa działa, gdy leży w drugiej ręce gracza, a w ekwipunku jest co najmniej 1 zwykła strzała (łuk bez niej się nie naciąga). Skrypt zamienia wystrzeloną zwykłą strzałę na wybuchową, zabiera 1 wybuchową i oddaje zwykłą.
+- uwaga: wybuch i smugę iskier robi skrypt (`scripts/strzala.js`). Różnica: łuk z gry strzela tylko zwykłymi strzałami, więc strzała wybuchowa działa, gdy leży w drugiej ręce gracza, a w ekwipunku jest co najmniej 1 zwykła strzała (łuk bez niej się nie naciąga). Skrypt zamienia wystrzeloną zwykłą strzałę na wybuchową, zabiera 1 wybuchową i oddaje zwykłą. Tak samo działa kusza (ładowana zwykłą strzałą); kusza z Wielostrzałem wystrzeliwuje 3 wybuchowe za 1 (wybór użytkownika 2026-10-19).
 - status: w grze
 
 ## Maczuga z pryzmarynu

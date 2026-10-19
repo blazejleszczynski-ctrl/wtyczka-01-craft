@@ -107,3 +107,8 @@ Jak używać: po napisaniu i przetestowaniu większej części kodu dopisujemy s
 - Objaw: wybuch tylko po trafieniu w blok (log: 35 wystrzałów, 22 trafienia w blok, 0 w moba). Przyczyna: strzała z gry znika w chwili trafienia moba, więc w `projectileHitEntity` jest już nieistniejąca i nie da się odczytać jej znacznika.
 - Poprawka: numery (id) strzał wybuchowych w zbiorze `wybuchowe` przy wystrzale - numer da się odczytać także z nieistniejącej strzały. Znacznik zostaje dla smugi i dla strzał wbitych przed ponownym wczytaniem świata. Potwierdzone w grze: 3/3 trafienia w moba z wybuchem, wszystkie z `istnieje=nie`.
 - `entitySpawn` dostał strzałę już nieistniejącą (2 błędy `InvalidEntityError` w linii 12) - sprawdzenie `isValid` na początku.
+
+## Strzała wybuchowa z kuszy (2026-10-19)
+- Kusza strzela tą samą strzałą z gry (`minecraft:arrow`), więc wystarczyło dopuścić `minecraft:crossbow` w ręku. Zwykłą strzałę kusza zabiera przy ładowaniu - skrypt oddaje ją przy strzale.
+- Wielostrzał: 3 strzały powstają w tym samym ticku. Mapa `ostatniStrzal` (gracz -> tick) - pierwsza strzała w ticku jest rozliczana (1 wybuchowa mniej), dwie pozostałe tylko oznaczane, nawet gdy druga ręka już pusta. W grze 15/15 strzałów z Wielostrzałem: 1 × `rozliczona=tak` + 2 × `rozliczona=nie`.
+- Znany błąd: strzała daleko poza wczytanym terenem - `LocationInUnloadedChunkError` przy smudze (89) i wybuchu (12) (`todo.md`).

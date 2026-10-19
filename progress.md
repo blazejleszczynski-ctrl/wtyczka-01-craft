@@ -91,3 +91,4 @@ Jak używać: po każdej sesji dopisujemy krótki wpis w formacie: data - cel se
 - Cel: błędy z testu - granat leci za daleko, strzała wybuchowa nie wybucha w mobie.
 - Zrobiono: analiza logu skryptem. Granat: kształt lotu zgodny z modelem (0,99 i 0,05), ale prędkość startowa za duża (×1,12 prosto, ×1,43 w górę; prosto 20 bloków zamiast 13, w górę 50 zamiast 38) - przyczyna nieznana. Strzała: znika przy trafieniu moba - rozpoznawanie po numerze (3/3 w grze), sprawdzenie `isValid` przy wystrzale.
 - Dalej: kusza ze strzałą wybuchową (Wielostrzał - 3 wybuchowe), potem pomiar kierunku rzutu granatu.
+- Dopisek: kusza ze strzałą wybuchową (Wielostrzał - 3 wybuchowe za 1), w grze 15/15. Nowy błąd z dalekimi strzałami i granat - w `todo.md`.
