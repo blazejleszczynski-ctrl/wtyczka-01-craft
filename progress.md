@@ -92,3 +92,8 @@ Jak używać: po każdej sesji dopisujemy krótki wpis w formacie: data - cel se
 - Zrobiono: analiza logu skryptem. Granat: kształt lotu zgodny z modelem (0,99 i 0,05), ale prędkość startowa za duża (×1,12 prosto, ×1,43 w górę; prosto 20 bloków zamiast 13, w górę 50 zamiast 38) - przyczyna nieznana. Strzała: znika przy trafieniu moba - rozpoznawanie po numerze (3/3 w grze), sprawdzenie `isValid` przy wystrzale.
 - Dalej: kusza ze strzałą wybuchową (Wielostrzał - 3 wybuchowe), potem pomiar kierunku rzutu granatu.
 - Dopisek: kusza ze strzałą wybuchową (Wielostrzał - 3 wybuchowe za 1), w grze 15/15. Nowy błąd z dalekimi strzałami i granat - w `todo.md`.
+
+## 2026-11-16 (buzdygan - przepis i test dymny)
+- Cel: nowe przedmioty od użytkownika; najpierw buzdygan (prośba kolegi).
+- Zrobiono: wpis buzdygana w `przepisy.md` (4 płaczący obsydian + 2 płomienne różdżki; zryw, spadanie na cel, na razie także na moby); dwie zbroje zapisane w `todo.md`; test dymny w grze 5/5 (zryw, ściąganie w dół, szukanie celu, cios od gracza, anulowanie obrażeń od upadku) - wyniki w `notes.md`. Sprawdzenie przepisów skryptem: 8/8 siatek, 0 powtórek.
+- Dalej: przedmiot `osm:buzdygan` bez efektów (commit 2), potem `buzdygan.js` z efektami (commit 3).

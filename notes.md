@@ -112,3 +112,12 @@ Jak używać: po napisaniu i przetestowaniu większej części kodu dopisujemy s
 - Kusza strzela tą samą strzałą z gry (`minecraft:arrow`), więc wystarczyło dopuścić `minecraft:crossbow` w ręku. Zwykłą strzałę kusza zabiera przy ładowaniu - skrypt oddaje ją przy strzale.
 - Wielostrzał: 3 strzały powstają w tym samym ticku. Mapa `ostatniStrzal` (gracz -> tick) - pierwsza strzała w ticku jest rozliczana (1 wybuchowa mniej), dwie pozostałe tylko oznaczane, nawet gdy druga ręka już pusta. W grze 15/15 strzałów z Wielostrzałem: 1 × `rozliczona=tak` + 2 × `rozliczona=nie`.
 - Znany błąd: strzała daleko poza wczytanym terenem - `LocationInUnloadedChunkError` przy smudze (89) i wybuchu (12) (`todo.md`).
+
+## Buzdygan - test dymny (2026-11-16)
+Tymczasowy skrypt `test_buzdygan.js` (patyk; po teście usunięty), log `ContentLog2026-11-16_18-56-34`, 0 błędów.
+- Zryw: `applyKnockback` gracza z siłą poziomą 1,0 i pionową 0,3 daje na ziemi ok. 3 bloki (3,02 i 3,81). Przytrzymany prawy przycisk powtarza `itemUse` (369 zrywów w logu) i zrywy się sumują (16-18 bloków) - potrzebna przerwa 1 s.
+- Ściąganie w dół: `applyKnockback` z pionową −2,0 co tick + pozioma korekta (różnica położeń × 0,3) w stronę celu: 14,6 bloku w 5 tickach, na końcu 0,25 bloku od środka celu.
+- Szukanie celu: `getEntities` + filtr (niżej, ≤ 3 bloki w bok), przeszkoda przez `getBlockFromRay` od stóp gracza do głowy celu. Gracz stojący na słupie nad celem zawsze ma „blok na drodze” (własny słup) - spadanie włącza się tylko w powietrzu. Zgodne z zasadą użytkownika.
+- Cios: `applyDamage(6, { cause: entityAttack, damagingEntity: gracz })` - 2/2, gra zapisuje cios jako zadany przez gracza.
+- Brak obrażeń od upadku: `world.beforeEvents.entityHurt` istnieje w `@minecraft/server` 2.10.0, `event.cancel = true` blokuje obrażenia przed zadaniem - 2/2 (14,4 i 6,4 pkt). Ta sama metoda nadaje się do ochrony przed wybuchami (hełm z gwiazdy Netheru, `todo.md`).
+- Błąd testu do uniknięcia w kodzie właściwym: cios zadawano także, gdy gracz wylądował na krawędzi (`isOnGround`), choć cel był 14 bloków niżej - cios tylko przy zetknięciu z celem.

@@ -22,6 +22,26 @@ Jak używać:
 | 7    | pryzmaryn         | minecraft:prismarine_shard (odłamek)                      |
 | 8    | szkło             | minecraft:glass                                           |
 | 9    | nić               | minecraft:string                                          |
+| A    | płaczący obsydian | minecraft:crying_obsidian                                 |
+| B    | płomienna różdżka | minecraft:blaze_rod                                       |
+
+## Buzdygan
+- id: osm:buzdygan
+- rodzaj: broń wręcz
+- ile sztuk daje przepis: 1
+- przepis:
+```
+. . . A A
+. . . A A
+. . B . .
+. B . . .
+. . . . .
+```
+- efekt: broń wręcz jak zwykły buzdygan. Zryw: prawy przycisk rzuca gracza ok. 3 bloki do przodu. Spadanie na gracza: gdy trzymasz buzdygan, a pod tobą jest inny gracz (najwyżej 3 bloki w bok, wysokość dowolna, między wami żadnego bloku), buzdygan szybko ściąga cię w dół i automatycznie uderza tego gracza. Po uderzeniu nie dostajesz obrażeń od upadku. Jeśli w trakcie spadania przeniesiesz się daleko (np. perłą Endu), spadanie się przerywa: spadasz zwyczajnie, ale bez obrażeń od upadku.
+- liczby: obrażenia jak zwykły buzdygan (6 pkt + premia za wysokość spadania); zryw ok. 3 bloki, co 1 s; spadanie na gracza raz na 60 s, zasięg 3 bloki w bok, wysokość bez ograniczenia; wytrzymałość 500 (jak zwykły buzdygan)
+- wygląd: ukośny buzdygan. Ciężka głowica z ciemnofioletowego płaczącego obsydianu z jasnofioletowymi „łzami”, trzonek z pomarańczowo-żółtej płomiennej różdżki (rysunek 16×16 - do zrobienia)
+- uwaga: zryw, spadanie, uderzenie, premię za wysokość i brak obrażeń od upadku robi skrypt (do sprawdzenia testem dymnym: pchanie gracza do przodu i w dół). Na razie (2026-11-16, wybór użytkownika) spadanie działa też nad mobami, żeby dało się je testować w pojedynkę; docelowo tylko nad innym graczem. Wysokość „bez ograniczenia” w praktyce kończy się na wczytanym terenie.
+- status: pomysł
 
 ## Artefakt 2
 - id: osm:artefakt_2
